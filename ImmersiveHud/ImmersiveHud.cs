@@ -58,6 +58,7 @@ namespace ImmersiveHud
         // Hud Element Settings
         public static ConfigEntry<bool> displayHealthAlways;
 
+        public static ConfigEntry<bool> displayKeyHintsAlways;
         public static ConfigEntry<bool> displayHotKeyBarAlways;
         public static ConfigEntry<bool> displayForsakenPowerAlways;
         public static ConfigEntry<bool> displayStatusEffectsAlways;
@@ -215,7 +216,8 @@ namespace ImmersiveHud
             "BetterUI_FoodBar",
             "BetterUI_StaminaBar",
             "Compass",
-            "DayTimePanel"
+            "DayTimePanel",
+            "KeyHints"
         };
 
         public class HudElement
@@ -354,6 +356,7 @@ namespace ImmersiveHud
             displayBetterUIFoodAlways = Config.Bind<bool>("- Settings: Display -", "displayBetterUIFoodAlways", false, "Always display the food bar (Requires Better UI).");
             displayCompassAlways = Config.Bind<bool>("- Settings: Display -", "displayCompassAlways", false, "Always display the compass (Requires aedenthorn's compass).");
             displayTimeAlways = Config.Bind<bool>("- Settings: Display -", "displayTimeAlways", false, "Always display the time or clock (Requires oryxen's display day and time mod).");
+            displayKeyHintsAlways = Config.Bind<bool>("- Settings: Display -", "displayKeyHintsAlways", false, "Always display the key hints.");
 
             // Display Scenario Settings - Health
             displayHealthInInventory = Config.Bind<bool>("Display - Health", "displayHealthInInventory", true, "Display your health when in the inventory.");

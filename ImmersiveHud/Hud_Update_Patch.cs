@@ -407,6 +407,15 @@ namespace ImmersiveHud
                         hudElements["QuickSlotsHotkeyBar"].hudSetTargetAlpha(0);
                     }
                 }
+
+                if (displayKeyHintsAlways.Value && hudElements["KeyHints"].doesExist)
+                {
+                    hudElements["KeyHints"].targetAlpha = 1;
+                }
+                else
+                {
+                    hudElements["KeyHints"].hudSetTargetAlpha(0);
+                }
             }
 
             // Reset timer when the target alpha changed.
