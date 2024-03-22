@@ -168,6 +168,10 @@ namespace ImmersiveHud
                 // Quick Slots
                 if (showQuickSlotsOnKeyPressed.Value)
                     hudElements["QuickSlotsHotkeyBar"].showHudForDuration();
+
+                // Key Hints
+                if (showKeyHintsOnKeyPressed.Value)
+                    hudElements["KeyHints"].showHudForDuration();
             }
             else
             {

@@ -60,6 +60,7 @@ namespace ImmersiveHud
 
         public static ConfigEntry<bool> displayKeyHintsAlways;
         public static ConfigEntry<bool> displayHotKeyBarAlways;
+
         public static ConfigEntry<bool> displayForsakenPowerAlways;
         public static ConfigEntry<bool> displayStatusEffectsAlways;
         public static ConfigEntry<bool> displayStaminaBarAlways;
@@ -165,6 +166,8 @@ namespace ImmersiveHud
 
         //public static ConfigEntry<bool> displayQuickSlotsOnItemSwitch;
         public static ConfigEntry<bool> showQuickSlotsOnKeyPressed;
+
+        public static ConfigEntry<bool> showKeyHintsOnKeyPressed;
 
         // Player Data
         public static float playerTotalFoodValue;
@@ -401,6 +404,7 @@ namespace ImmersiveHud
             //displayPowerWhenTimeChanges
             //displayPowerOnReady
             showPowerOnKeyPressed = Config.Bind<bool>("Display - Forsaken Power", "showPowerOnKeyPressed", true, "Show the forsaken power when the show hud key is pressed.");
+            showKeyHintsOnKeyPressed = Config.Bind<bool>("Display - Key Hints", "showKeyHintsOnKeyPressed", true, "Show the key hints when the show hud key is pressed.");
 
             // Display Scenario Settings - Hot Key Bar
             displayHotKeyBarInInventory = Config.Bind<bool>("Display - Hot Key Bar", "displayHotKeyBarInInventory", true, "Display the hot key bar when in the inventory.");
