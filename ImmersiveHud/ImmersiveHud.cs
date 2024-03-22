@@ -8,7 +8,7 @@ using HarmonyLib;
 
 namespace ImmersiveHud
 {
-    [BepInPlugin("jwlei.ImmersiveHud", "Immersive Hud", "1.0.0")]
+    [BepInPlugin("jwlei.ImmersiveHud", "Immersive Hud", "1.1.0")]
     [BepInProcess("valheim.exe")]
     public class ImmersiveHud : BaseUnityPlugin
     {
