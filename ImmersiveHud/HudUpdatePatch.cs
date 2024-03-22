@@ -4,7 +4,7 @@ using HarmonyLib;
 namespace ImmersiveHud
 {
     [HarmonyPatch(typeof(Hud), "Update")]
-    public class Hud_Update_Patch : ImmersiveHud
+    public class HudUpdatePatch : ImmersiveHud
     {
         public static void updateHudElementTransparency(HudElement hudElement)
         {
@@ -195,19 +195,12 @@ namespace ImmersiveHud
                         hudElements["healthpanel"].showHudForDuration();
                         hudElements["BetterUI_HPBar"].showHudForDuration();
                     }
-
-                    // Display health panel when below a given percentage.
-                    if (displayHealthWhenBelow.Value && localPlayer.GetHealthPercentage() <= healthPercentage.Value)
-                    {
-                        hudElements["healthpanel"].hudSetTargetAlpha(1);
-                        hudElements["BetterUI_HPBar"].hudSetTargetAlpha(1);
-                    }
-                    else if (displayHealthWhenFoodBelow.Value && playerFoodPercentage <= foodPercentage.Value)
-                    {
-                        hudElements["healthpanel"].hudSetTargetAlpha(1);
-                        hudElements["BetterUI_HPBar"].hudSetTargetAlpha(1);
-                    }
-                    else if (displayHealthWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
+                    else if (
+                            // Display health panel when below a given percentage
+                            (displayHealthWhenBelow.Value && localPlayer.GetHealthPercentage() <= healthPercentage.Value) ||
+                            (displayHealthWhenFoodBelow.Value && playerFoodPercentage <= foodPercentage.Value) ||
+                            (displayHealthWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
+                            )
                     {
                         hudElements["healthpanel"].hudSetTargetAlpha(1);
                         hudElements["BetterUI_HPBar"].hudSetTargetAlpha(1);
@@ -280,17 +273,11 @@ namespace ImmersiveHud
                     }
 
                     // Display stamina bar when below a given percentage.
-                    if (displayStaminaBarWhenBelow.Value && localPlayer.GetStaminaPercentage() <= staminaPercentage.Value)
-                    {
-                        hudElements["staminapanel"].hudSetTargetAlpha(1);
-                        hudElements["BetterUI_StaminaBar"].hudSetTargetAlpha(1);
-                    }
-                    else if (displayStaminaBarWhenFoodBelow.Value && playerFoodPercentage <= foodPercentage.Value)
-                    {
-                        hudElements["staminapanel"].hudSetTargetAlpha(1);
-                        hudElements["BetterUI_StaminaBar"].hudSetTargetAlpha(1);
-                    }
-                    else if (displayStaminaBarWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
+                    if (
+                        (displayStaminaBarWhenBelow.Value && localPlayer.GetStaminaPercentage() <= staminaPercentage.Value) ||
+                        (displayStaminaBarWhenFoodBelow.Value && playerFoodPercentage <= foodPercentage.Value) ||
+                        (displayStaminaBarWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
+                       )
                     {
                         hudElements["staminapanel"].hudSetTargetAlpha(1);
                         hudElements["BetterUI_StaminaBar"].hudSetTargetAlpha(1);

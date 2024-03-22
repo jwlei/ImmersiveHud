@@ -5,7 +5,7 @@ using System.Reflection;
 namespace ImmersiveHud
 {
     [HarmonyPatch(typeof(Player), "Update")]
-    public class Player_Update_Patch : ImmersiveHud
+    public class PlayerUpdatePatch : ImmersiveHud
     {
         private static void Prefix(Player __instance)
         {
@@ -32,7 +32,7 @@ namespace ImmersiveHud
     }
 
     [HarmonyPatch(typeof(Player), "UseStamina")]
-    public class Player_UseStamina_Patch : ImmersiveHud
+    public class PlayerUseStaminaPatch : ImmersiveHud
     {
         private static void Postfix(ref float v)
         {
@@ -44,7 +44,7 @@ namespace ImmersiveHud
     }
 
     [HarmonyPatch(typeof(Player), "UseHotbarItem")]
-    public class Player_UseHotbarItem_Patch : ImmersiveHud
+    public class PlayerUseHotbarItemPatch : ImmersiveHud
     {
         private static void Postfix(int index)
         {
@@ -60,7 +60,7 @@ namespace ImmersiveHud
     }
 
     [HarmonyPatch]
-    public class Player_UpdateFood_Patch : ImmersiveHud
+    public class PlayerUpdateFoodPatch : ImmersiveHud
     {
         private static MethodBase TargetMethod()
         {

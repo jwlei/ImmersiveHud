@@ -32,9 +32,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ConfigurationManagerAttributes.cs" />
-    <Compile Include="Player_Update_Patch.cs" />
-    <Compile Include="Hud_UpdateCrosshair_Patch.cs" />
-    <Compile Include="Hud_Update_Patch.cs" />
+    <Compile Include="PlayerUpdatePatch.cs" />
+    <Compile Include="HudUpdateCrosshairPatch.cs" />
+    <Compile Include="HudUpdatePatch.cs" />
     <Compile Include="ImmersiveHud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

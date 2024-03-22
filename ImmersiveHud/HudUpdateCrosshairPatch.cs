@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using HarmonyLib;
+using System.Linq.Expressions;
 
 namespace ImmersiveHud
 {
     [HarmonyPatch(typeof(Hud), "UpdateCrosshair")]
-    public class Hud_UpdateCrosshair_Patch : ImmersiveHud
+    public class HudUpdateCrosshairPatch : ImmersiveHud
     {
         public static void updateCrosshairHudElement(float bowDrawPercentage)
         {
