@@ -317,7 +317,7 @@ namespace ImmersiveHud
         {
             // General
             isEnabled = Config.Bind<bool>("- General -", "Enable Mod", true, "Enable or disable the mod");
-            nexusID = Config.Bind<int>("- General -", "NexusID", 790, "Nexus mod ID for updates");
+            nexusID = Config.Bind<int>("- General -", "NexusID", 2732, "Nexus mod ID for updates");
 
             // Main Settings
             hideHudKey = Config.Bind<KeyboardShortcut>("- Main Settings -", "hideHudKey", new KeyboardShortcut(KeyCode.H), "Keyboard shortcut or mouse button to hide the hud permanently.");
