@@ -31,12 +31,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationManagerAttributes.cs" />
-    <Compile Include="PlayerUpdatePatch.cs" />
-    <Compile Include="HudUpdateCrosshairPatch.cs" />
-    <Compile Include="HudUpdatePatch.cs" />
+    <Compile Include="Patches\Crosshair\Crosshair.cs" />
+    <Compile Include="Patches\Hud\Hud.cs" />
+    <Compile Include="Patches\Hud\HudChecks.cs" />
+    <Compile Include="Patches\Hud\PatchHudAwake.cs" />
+    <Compile Include="Patches\Player\Player.cs" />
+    <Compile Include="Patches\Player\PatchPlayerCheckBowEquipped.cs" />
+    <Compile Include="Patches\Player\PatchPlayerCheckHotbarItemUsed.cs" />
+    <Compile Include="Patches\Player\PatchPlayerCheckStaminaChanged.cs" />
+    <Compile Include="Utility\Compatibility.cs" />
+    <Compile Include="Utility\Config.cs" />
+    <Compile Include="Utility\ConfigurationManagerAttributes.cs" />
+    <Compile Include="Patches\Player\PatchPlayerCheckFoodEaten.cs" />
+    <Compile Include="Patches\Crosshair\PatchCrosshair.cs" />
+    <Compile Include="Patches\Hud\PatchHudSetVisibility.cs" />
     <Compile Include="ImmersiveHud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Patches\Hud\HudElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
