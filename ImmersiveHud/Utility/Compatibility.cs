@@ -21,73 +21,52 @@ namespace ImmersiveHud
         public static void setCompatibility(Transform hud)
         {
             // Compatibility check for BetterUI HP Bar.
-            if (betterUIHPEnabled.Value && !hudElements["BetterUI_HPBar"].exists)
+            if (betterUIHPEnabled.Value && !hudElements["BetterUI_HPBar"].exists && hud.Find("BetterUI_HPBar"))
             {
-                if (hud.Find("BetterUI_HPBar"))
-                {
-                    hudElements["BetterUI_HPBar"].setElement(hud.Find("BetterUI_HPBar"));
-                    hudElements["BetterUI_HPBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["BetterUI_HPBar"].setElement(hud.Find("BetterUI_HPBar"));
+                hudElements["BetterUI_HPBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
 
             // Compatibility check for BetterUI Food Bar.
-            if (betterUIFoodEnabled.Value && !hudElements["BetterUI_FoodBar"].exists)
+            if (betterUIFoodEnabled.Value && !hudElements["BetterUI_FoodBar"].exists && hud.Find("BetterUI_FoodBar"))
             {
-                if (hud.Find("BetterUI_FoodBar"))
-                {
-                    hudElements["BetterUI_FoodBar"].setElement(hud.Find("BetterUI_FoodBar"));
-                    hudElements["BetterUI_FoodBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["BetterUI_FoodBar"].setElement(hud.Find("BetterUI_FoodBar"));
+                hudElements["BetterUI_FoodBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
 
             // Compatibility check for BetterUI Stam Bar.
-            if (betterUIStamEnabled.Value && !hudElements["BetterUI_StaminaBar"].exists)
+            if (betterUIStamEnabled.Value && !hudElements["BetterUI_StaminaBar"].exists && hud.Find("BetterUI_StaminaBar"))
             {
-                if (hud.Find("BetterUI_StaminaBar"))
-                {
-                    hudElements["BetterUI_StaminaBar"].setElement(hud.Find("BetterUI_StaminaBar"));
-                    hudElements["BetterUI_StaminaBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["BetterUI_StaminaBar"].setElement(hud.Find("BetterUI_StaminaBar"));
+                hudElements["BetterUI_StaminaBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
 
             // Compatibility check for Compass.
-            if (aedenCompassEnabled.Value && !hudElements["Compass"].exists)
+            if (aedenCompassEnabled.Value && !hudElements["Compass"].exists && hud.Find("Compass"))
             {
-                if (hud.Find("Compass"))
-                {
-                    hudElements["Compass"].setElement(hud.Find("Compass"));
-                    hudElements["Compass"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["Compass"].setElement(hud.Find("Compass"));
+                hudElements["Compass"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
 
             // Compatibility check for Display Day and Time.
-            if (oryxenTimeEnabled.Value && !hudElements["DayTimePanel"].exists)
+            if (oryxenTimeEnabled.Value && !hudElements["DayTimePanel"].exists && hud.Find("DayTimePanel"))
             {
-                if (hud.Find("DayTimePanel"))
-                {
-                    hudElements["DayTimePanel"].setElement(hud.Find("DayTimePanel"));
-                    hudElements["DayTimePanel"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["DayTimePanel"].setElement(hud.Find("DayTimePanel"));
+                hudElements["DayTimePanel"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
 
             // Compatibility check for Quick Slots.
-            if (RandyQuickSlotsEnabled.Value && !hudElements["QuickSlotsHotkeyBar"].exists)
+            if (RandyQuickSlotsEnabled.Value && !hudElements["QuickSlotsHotkeyBar"].exists && hud.Find("QuickSlotsHotkeyBar"))
             {
-                if (hud.Find("QuickSlotsHotkeyBar"))
-                {
-                    hudElements["QuickSlotsHotkeyBar"].setElement(hud.Find("QuickSlotsHotkeyBar"));
-                    hudElements["QuickSlotsHotkeyBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["QuickSlotsHotkeyBar"].setElement(hud.Find("QuickSlotsHotkeyBar"));
+                hudElements["QuickSlotsHotkeyBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
 
             // Compatibility check for AzumatQuickSlot.
-            if (AzuQuickSlotsEnabled.Value && !hudElements["QuickAccessBar"].exists)
+            if (AzuQuickSlotsEnabled.Value && !hudElements["QuickAccessBar"].exists && hud.Find("QuickAccessBar"))
             {
-                if (hud.Find("QuickAccessBar"))
-                {
-                    hudElements["QuickAccessBar"].setElement(hud.Find("QuickAccessBar"));
-                    hudElements["QuickAccessBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
-                }
+                hudElements["QuickAccessBar"].setElement(hud.Find("QuickAccessBar"));
+                hudElements["QuickAccessBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
             }
         }
     }

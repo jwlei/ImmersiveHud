@@ -1,5 +1,6 @@
 # 1.2.0
 * Added option to show healthbar on damage taken
+* Added compatibility with AzuExtendedInventory
 
 # 1.1.0
 * Added option to hide KeyHints (The hotkey text at the bottom of the screen while using a tool/weapon)

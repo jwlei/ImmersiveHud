@@ -22,7 +22,8 @@ namespace ImmersiveHud
             "BetterUI_StaminaBar",
             "Compass",
             "DayTimePanel",
-            "KeyHints"
+            "KeyHints",
+            "QuickAccessBar",
             };
 
         public enum notificationTypes

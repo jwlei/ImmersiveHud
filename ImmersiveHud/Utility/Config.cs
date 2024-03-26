@@ -167,6 +167,7 @@ namespace ImmersiveHud
             betterUIStamEnabled = Config.Bind<bool>("- Mod Compatibility -", "betterUIStamEnabled", false, "Enable compatibility for Better UI's custom stamina bar.");
             aedenCompassEnabled = Config.Bind<bool>("- Mod Compatibility -", "aedenCompassEnabled", false, "Enable compatibility for aedenthorn's compass mod.");
             oryxenTimeEnabled = Config.Bind<bool>("- Mod Compatibility -", "oryxenTimeEnabled", false, "Enable compatibility for oryxen's display day and time mod.");
+            AzuQuickSlotsEnabled = Config.Bind<bool>("- Mod Compatibility -", "AzuQuickSlotsEnabled", false, "Enable compatibility for AzuExtendedPlayerInventory mod.");
 
             // Crosshair Settings
             useCustomCrosshair = Config.Bind<bool>("- Settings: Crosshair -", "useCustomCrosshair", false, new ConfigDescription("Enable or disable the new crosshair.", null, new ConfigurationManagerAttributes { Order = 1 }));

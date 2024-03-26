@@ -107,7 +107,10 @@ namespace ImmersiveHud
 
             // Quick Slots
             if (showQuickSlotsOnKeyPressed.Value)
+            {
                 hudElements["QuickSlotsHotkeyBar"].ShowHudForDuration();
+                hudElements["QuickAccessBar"].ShowHudForDuration();
+            }
 
             // Key Hints
             if (showKeyHintsOnKeyPressed.Value)
