@@ -30,6 +30,7 @@ namespace ImmersiveHud
         public static bool playerUsedHotBarItem;
         public static bool playerUsedQuickSlotsItem;
         public static bool playerHasItemEquipped;
+        public static bool playerTookDamage;
 
         private static void CheckPlayerEquippedWeapon(ItemDrop.ItemData playerEquippedWeapon)
         {

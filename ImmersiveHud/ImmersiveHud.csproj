@@ -35,6 +35,7 @@
     <Compile Include="Patches\Hud\Hud.cs" />
     <Compile Include="Patches\Hud\HudChecks.cs" />
     <Compile Include="Patches\Hud\PatchHudAwake.cs" />
+    <Compile Include="Patches\Player\PatchPlayerCheckDamaged.cs" />
     <Compile Include="Patches\Player\Player.cs" />
     <Compile Include="Patches\Player\PatchPlayerCheckBowEquipped.cs" />
     <Compile Include="Patches\Player\PatchPlayerCheckHotbarItemUsed.cs" />

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using BepInEx;
+using BepInEx.Logging;
+using HarmonyLib.Tools;
+using UnityEngine;
 
 namespace ImmersiveHud
 {
@@ -127,9 +130,9 @@ namespace ImmersiveHud
             }
             else
             {
-                // Display health panel when eating food
-                if (displayHealthWhenEating.Value && playerAteFood)
+                if ((displayHealthWhenEating.Value && playerAteFood) || (displayHealthOnDamage.Value && playerTookDamage))
                 {
+                    // Display health panel when eating food or taking damage
                     hudElements["healthpanel"].ShowHudForDuration();
                     hudElements["BetterUI_HPBar"].ShowHudForDuration();
                 }
@@ -163,7 +166,7 @@ namespace ImmersiveHud
             }
             else
             {
-                if (betterUIFoodEnabled.Value && hudElements["BetterUI_FoodBar"].doesExist)
+                if (betterUIFoodEnabled.Value && hudElements["BetterUI_FoodBar"].exists)
                 {
                     // Display food bar when eating food
                     if (displayFoodBarWhenEating.Value && playerAteFood)
@@ -310,7 +313,7 @@ namespace ImmersiveHud
 
         private static void CheckCompass()
         {
-            if (aedenCompassEnabled.Value && hudElements["Compass"].doesExist)
+            if (aedenCompassEnabled.Value && hudElements["Compass"].exists)
             {
                 if (displayCompassAlways.Value || (displayCompassInInventory.Value && InventoryGui.IsVisible()))
                 {
@@ -329,7 +332,7 @@ namespace ImmersiveHud
         private static void CheckDayTime()
         {
             // Day and Time Display
-            if (oryxenTimeEnabled.Value && hudElements["DayTimePanel"].doesExist)
+            if (oryxenTimeEnabled.Value && hudElements["DayTimePanel"].exists)
             {
                 if (displayTimeAlways.Value || (displayTimeInInventory.Value && InventoryGui.IsVisible()))
                 {
@@ -348,7 +351,7 @@ namespace ImmersiveHud
         private static void CheckQuickSlots()
         {
             // QuickSlots Display
-            if (quickSlotsEnabled.Value && hudElements["QuickSlotsHotkeyBar"].doesExist)
+            if (quickSlotsEnabled.Value && hudElements["QuickSlotsHotkeyBar"].exists)
             {
                 if (displayQuickSlotsAlways.Value || (displayQuickSlotsInInventory.Value && InventoryGui.IsVisible()))
                 {
@@ -363,7 +366,7 @@ namespace ImmersiveHud
                 }
             }
 
-            if (displayKeyHintsAlways.Value && hudElements["KeyHints"].doesExist)
+            if (displayKeyHintsAlways.Value && hudElements["KeyHints"].exists)
             {
                 hudElements["KeyHints"].targetAlpha = 1;
             }

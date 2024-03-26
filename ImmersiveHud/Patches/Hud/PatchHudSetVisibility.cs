@@ -28,7 +28,7 @@ namespace ImmersiveHud
 
                 foreach (string name in hudElementNames)
                 {
-                    if (!hudElements[name].doesExist || hudElements[name].element == null)
+                    if (!hudElements[name].exists || hudElements[name].element == null)
                         continue;
 
                     hudElements[name].HudCheckLerpDuration();

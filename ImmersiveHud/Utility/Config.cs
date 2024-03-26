@@ -1,6 +1,5 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ImmersiveHud
@@ -66,6 +65,7 @@ namespace ImmersiveHud
         //public static ConfigEntry<bool> displayHealthWhenDamaged;
         public static ConfigEntry<bool> displayHealthWhenHungry;
 
+        public static ConfigEntry<bool> displayHealthOnDamage;
         public static ConfigEntry<bool> displayHealthWhenEating;
         public static ConfigEntry<bool> displayHealthWhenBelow;
         public static ConfigEntry<bool> displayHealthWhenFoodBelow;
@@ -196,6 +196,7 @@ namespace ImmersiveHud
             displayKeyHintsAlways = Config.Bind<bool>("- Settings: Display -", "displayKeyHintsAlways", false, "Always display the key hints.");
 
             // Display Scenario Settings - Health
+            displayHealthOnDamage = Config.Bind<bool>("- Settings: Display - Health -", "displayHealthOnDamage", true, "Display the health panel when you take damage.");
             displayHealthInInventory = Config.Bind<bool>("Display - Health", "displayHealthInInventory", true, "Display your health when in the inventory.");
             //displayHealthDuringRegen  = ImmersiveHud.Bind<bool>("Display - Health", "displayDuringRegen", false, "During health regen, the health panel will display.");
             //displayHealthWhenDamaged  = ImmersiveHud.Bind<bool>("Display - Health", "displayWhenDamaged", false, "Display the health panel when damaged.");

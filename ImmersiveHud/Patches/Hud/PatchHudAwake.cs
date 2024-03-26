@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using static ImmersiveHud.ImmersiveHud;
 using System.Collections.Generic;
 using UnityEngine;
 using BepInEx;

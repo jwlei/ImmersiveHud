@@ -10,17 +10,17 @@ namespace ImmersiveHud
     {
         public static void setCompatibilityInit()
         {
-            hudElements["BetterUI_HPBar"].doesExist = false;
-            hudElements["BetterUI_FoodBar"].doesExist = false;
-            hudElements["BetterUI_StaminaBar"].doesExist = false;
-            hudElements["Compass"].doesExist = false;
-            hudElements["QuickSlotsHotkeyBar"].doesExist = false;
+            hudElements["BetterUI_HPBar"].exists = false;
+            hudElements["BetterUI_FoodBar"].exists = false;
+            hudElements["BetterUI_StaminaBar"].exists = false;
+            hudElements["Compass"].exists = false;
+            hudElements["QuickSlotsHotkeyBar"].exists = false;
         }
 
         public static void setCompatibility(Transform hud)
         {
             // Compatibility check for BetterUI HP Bar.
-            if (betterUIHPEnabled.Value && !hudElements["BetterUI_HPBar"].doesExist)
+            if (betterUIHPEnabled.Value && !hudElements["BetterUI_HPBar"].exists)
             {
                 if (hud.Find("BetterUI_HPBar"))
                 {
@@ -30,7 +30,7 @@ namespace ImmersiveHud
             }
 
             // Compatibility check for BetterUI Food Bar.
-            if (betterUIFoodEnabled.Value && !hudElements["BetterUI_FoodBar"].doesExist)
+            if (betterUIFoodEnabled.Value && !hudElements["BetterUI_FoodBar"].exists)
             {
                 if (hud.Find("BetterUI_FoodBar"))
                 {
@@ -40,7 +40,7 @@ namespace ImmersiveHud
             }
 
             // Compatibility check for BetterUI Stam Bar.
-            if (betterUIStamEnabled.Value && !hudElements["BetterUI_StaminaBar"].doesExist)
+            if (betterUIStamEnabled.Value && !hudElements["BetterUI_StaminaBar"].exists)
             {
                 if (hud.Find("BetterUI_StaminaBar"))
                 {
@@ -50,7 +50,7 @@ namespace ImmersiveHud
             }
 
             // Compatibility check for Compass.
-            if (aedenCompassEnabled.Value && !hudElements["Compass"].doesExist)
+            if (aedenCompassEnabled.Value && !hudElements["Compass"].exists)
             {
                 if (hud.Find("Compass"))
                 {
@@ -60,7 +60,7 @@ namespace ImmersiveHud
             }
 
             // Compatibility check for Display Day and Time.
-            if (oryxenTimeEnabled.Value && !hudElements["DayTimePanel"].doesExist)
+            if (oryxenTimeEnabled.Value && !hudElements["DayTimePanel"].exists)
             {
                 if (hud.Find("DayTimePanel"))
                 {
@@ -70,7 +70,7 @@ namespace ImmersiveHud
             }
 
             // Compatibility check for Quick Slots.
-            if (quickSlotsEnabled.Value && !hudElements["QuickSlotsHotkeyBar"].doesExist)
+            if (quickSlotsEnabled.Value && !hudElements["QuickSlotsHotkeyBar"].exists)
             {
                 if (hud.Find("QuickSlotsHotkeyBar"))
                 {

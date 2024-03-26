@@ -1,11 +1,5 @@
-﻿using System.IO;
-using System.Collections.Generic;
-using BepInEx;
-using BepInEx.Configuration;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using BepInEx;
 using HarmonyLib;
-using System.Reflection;
 
 namespace ImmersiveHud
 {

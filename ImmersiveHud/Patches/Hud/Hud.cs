@@ -103,9 +103,9 @@ namespace ImmersiveHud
             // Reset timer when the target alpha changed.
             foreach (string name in hudElementNames)
             {
-                hudElements[name].HudCheckDisplayTimer();
+                hudElements[name].HudElementCheckDisplayTimer();
 
-                if (!hudElements[name].doesExist || hudElements[name].element == null)
+                if (!hudElements[name].exists || hudElements[name].element == null)
                     continue;
 
                 if (hudElements[name].targetAlphaPrev != hudElements[name].targetAlpha)
@@ -114,13 +114,14 @@ namespace ImmersiveHud
 
             playerUsedHotBarItem = false;
             playerUsedStamina = false;
+            playerTookDamage = false;
             playerAteFood = false;
         }
 
         private static void ForceVanillaStaminabar(Hud __instance)
         {
             // FIX: vanilla stam bar when eating food.
-            if (!hudElements["BetterUI_StaminaBar"].doesExist)
+            if (!hudElements["BetterUI_StaminaBar"].exists)
             {
                 hudElements["staminapanel"].element.gameObject.SetActive(true);
                 __instance.m_staminaAnimator.SetBool("Visible", true);

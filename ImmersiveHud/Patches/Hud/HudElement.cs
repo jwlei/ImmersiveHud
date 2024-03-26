@@ -41,20 +41,17 @@ namespace ImmersiveHud
         {
             public Transform element;
             public string elementName;
-            public float timeFade = 0;
-            public float timeDisplay = 0;
 
+            public float timeFade;
+            public float timeDisplay;
             public float targetAlphaPrev;
             public float targetAlpha;
             public float lastSetAlpha;
 
-            public bool doesExist = false;
+            public bool exists = false;
             public bool targetAlphaReached;
-            public bool isDisplaying;
+            public bool isVisible;
 
-            // List of hud elements
-
-            // Notification Types
             public HudElement(string name)
             {
                 element = null;
@@ -66,18 +63,20 @@ namespace ImmersiveHud
                 if (e != null)
                 {
                     element = e;
-                    doesExist = true;
+                    exists = true;
                 }
             }
 
             public void HudSetTargetAlpha(float alpha)
             {
-                if (!isDisplaying)
+                // Set the target alpha for the element.
+                if (!isVisible)
                     targetAlpha = alpha;
             }
 
             public void HudCheckLerpDuration()
             {
+                // Check if the element has reached the target alpha.
                 if (timeFade >= hudFadeDuration.Value)
                     targetAlphaReached = true;
                 else
@@ -86,25 +85,28 @@ namespace ImmersiveHud
 
             public void ShowHudForDuration()
             {
-                if (!doesExist)
+                // If the element is not visible, show it for the duration of the set time.
+                if (!exists)
                     return;
 
                 targetAlpha = 1;
                 timeDisplay = 0;
-                isDisplaying = true;
+                isVisible = true;
             }
 
-            public void HudCheckDisplayTimer()
+            public void HudElementCheckDisplayTimer()
             {
-                if (timeDisplay >= showHudDuration.Value && isDisplaying)
+                // If the element is visible, check if it has been visible for the set time.
+                if (timeDisplay >= showHudDuration.Value && isVisible)
                 {
                     targetAlpha = 0;
-                    isDisplaying = false;
+                    isVisible = false;
                 }
             }
 
             public void ResetTimers()
             {
+                // Reset timers for fade and display.
                 timeFade = 0;
                 timeDisplay = 0;
             }
