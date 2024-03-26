@@ -15,6 +15,7 @@ namespace ImmersiveHud
             hudElements["BetterUI_StaminaBar"].exists = false;
             hudElements["Compass"].exists = false;
             hudElements["QuickSlotsHotkeyBar"].exists = false;
+            hudElements["QuickAccessBar"].exists = false;
         }
 
         public static void setCompatibility(Transform hud)
@@ -70,12 +71,22 @@ namespace ImmersiveHud
             }
 
             // Compatibility check for Quick Slots.
-            if (quickSlotsEnabled.Value && !hudElements["QuickSlotsHotkeyBar"].exists)
+            if (RandyQuickSlotsEnabled.Value && !hudElements["QuickSlotsHotkeyBar"].exists)
             {
                 if (hud.Find("QuickSlotsHotkeyBar"))
                 {
                     hudElements["QuickSlotsHotkeyBar"].setElement(hud.Find("QuickSlotsHotkeyBar"));
                     hudElements["QuickSlotsHotkeyBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
+                }
+            }
+
+            // Compatibility check for AzumatQuickSlot.
+            if (AzuQuickSlotsEnabled.Value && !hudElements["QuickAccessBar"].exists)
+            {
+                if (hud.Find("QuickAccessBar"))
+                {
+                    hudElements["QuickAccessBar"].setElement(hud.Find("QuickAccessBar"));
+                    hudElements["QuickAccessBar"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
                 }
             }
         }

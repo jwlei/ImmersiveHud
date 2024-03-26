@@ -97,6 +97,7 @@ namespace ImmersiveHud
                 CheckMinimap();
                 CheckCompass();
                 CheckDayTime();
+                CheckKeyHints();
                 CheckQuickSlots();
             }
 

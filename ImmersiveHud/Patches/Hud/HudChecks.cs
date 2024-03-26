@@ -348,12 +348,30 @@ namespace ImmersiveHud
             }
         }
 
+        private static void CheckKeyHints()
+        {
+            if (displayKeyHintsAlways.Value && hudElements["KeyHints"].exists)
+            {
+                hudElements["KeyHints"].targetAlpha = 1;
+            }
+            else
+            {
+                hudElements["KeyHints"].HudSetTargetAlpha(0);
+            }
+        }
+
         private static void CheckQuickSlots()
         {
+            CheckRandyQuickSlots();
+            CheckAzuQuickSlots();
+        }
+
+        private static void CheckRandyQuickSlots()
+        {
             // QuickSlots Display
-            if (quickSlotsEnabled.Value && hudElements["QuickSlotsHotkeyBar"].exists)
+            if (RandyQuickSlotsEnabled.Value && hudElements["QuickSlotsHotkeyBar"].exists)
             {
-                if (displayQuickSlotsAlways.Value || (displayQuickSlotsInInventory.Value && InventoryGui.IsVisible()))
+                if (displayRandyQuickSlotsAlways.Value || (displayQuickSlotsInInventory.Value && InventoryGui.IsVisible()))
                 {
                     hudElements["QuickSlotsHotkeyBar"].targetAlpha = 1;
 
@@ -365,14 +383,24 @@ namespace ImmersiveHud
                     hudElements["QuickSlotsHotkeyBar"].HudSetTargetAlpha(0);
                 }
             }
+        }
 
-            if (displayKeyHintsAlways.Value && hudElements["KeyHints"].exists)
+        private static void CheckAzuQuickSlots()
+        {
+            // QuickSlots Display
+            if (AzuQuickSlotsEnabled.Value && hudElements["QuickAccessBar"].exists)
             {
-                hudElements["KeyHints"].targetAlpha = 1;
-            }
-            else
-            {
-                hudElements["KeyHints"].HudSetTargetAlpha(0);
+                if (displayAzuQuickSlotsAlways.Value || (displayQuickSlotsInInventory.Value && InventoryGui.IsVisible()))
+                {
+                    hudElements["QuickAccessBar"].targetAlpha = 1;
+
+                    if (!displayQuickSlotsInInventory.Value && InventoryGui.IsVisible())
+                        hudElements["QuickAccessBar"].HudSetTargetAlpha(0);
+                }
+                else
+                {
+                    hudElements["QuickAccessBar"].HudSetTargetAlpha(0);
+                }
             }
         }
     }

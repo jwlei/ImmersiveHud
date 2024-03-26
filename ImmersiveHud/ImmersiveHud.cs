@@ -10,7 +10,7 @@ namespace ImmersiveHud
     {
         private const string MID = "jwlei.ImmersiveHud";
         private const string modName = "Immersive Hud";
-        private const string pluginVersion = "1.1.0";
+        private const string pluginVersion = "1.2.0";
 
         private void Awake()
         {

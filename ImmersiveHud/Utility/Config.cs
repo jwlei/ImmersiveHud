@@ -44,27 +44,26 @@ namespace ImmersiveHud
         public static ConfigEntry<bool> displayStatusEffectsAlways;
         public static ConfigEntry<bool> displayStaminaBarAlways;
         public static ConfigEntry<bool> displayMiniMapAlways;
-        public static ConfigEntry<bool> displayQuickSlotsAlways;
+        public static ConfigEntry<bool> displayRandyQuickSlotsAlways;
         public static ConfigEntry<bool> displayBetterUIFoodAlways;
         public static ConfigEntry<bool> displayCompassAlways;
         public static ConfigEntry<bool> displayTimeAlways;
+        public static ConfigEntry<bool> displayAzuQuickSlotsAlways;
 
         // Compatibility Settings
-        public static ConfigEntry<bool> quickSlotsEnabled;
+        public static ConfigEntry<bool> RandyQuickSlotsEnabled;
 
         public static ConfigEntry<bool> betterUIHPEnabled;
         public static ConfigEntry<bool> betterUIFoodEnabled;
         public static ConfigEntry<bool> betterUIStamEnabled;
         public static ConfigEntry<bool> aedenCompassEnabled;
         public static ConfigEntry<bool> oryxenTimeEnabled;
+        public static ConfigEntry<bool> AzuQuickSlotsEnabled;
 
         // Hud Element - Health
         public static ConfigEntry<bool> displayHealthInInventory;
 
-        //public static ConfigEntry<bool> displayHealthDuringRegen;
-        //public static ConfigEntry<bool> displayHealthWhenDamaged;
         public static ConfigEntry<bool> displayHealthWhenHungry;
-
         public static ConfigEntry<bool> displayHealthOnDamage;
         public static ConfigEntry<bool> displayHealthWhenEating;
         public static ConfigEntry<bool> displayHealthWhenBelow;
@@ -162,7 +161,7 @@ namespace ImmersiveHud
             showHudKey = Config.Bind<KeyboardShortcut>("- Main Settings -", "showHudKey", new KeyboardShortcut(KeyCode.G), "Keyboard shortcut or mouse button to display the hud for a duration.");
 
             // Compatibility
-            quickSlotsEnabled = Config.Bind<bool>("- Mod Compatibility -", "quickSlotsEnabled", false, "Enable compatibility for quickslots mod.");
+            RandyQuickSlotsEnabled = Config.Bind<bool>("- Mod Compatibility -", "RandyQuickSlotsEnabled", false, "Enable compatibility for quickslots mod.");
             betterUIHPEnabled = Config.Bind<bool>("- Mod Compatibility -", "betterUIHPEnabled", false, "Enable compatibility for Better UI's custom HP bar.");
             betterUIFoodEnabled = Config.Bind<bool>("- Mod Compatibility -", "betterUIFoodEnabled", false, "Enable compatibility for Better UI's custom food bar.");
             betterUIStamEnabled = Config.Bind<bool>("- Mod Compatibility -", "betterUIStamEnabled", false, "Enable compatibility for Better UI's custom stamina bar.");
@@ -189,7 +188,8 @@ namespace ImmersiveHud
             displayStatusEffectsAlways = Config.Bind<bool>("- Settings: Display -", "displayStatusEffectsAlways", false, "Always display status effects.");
             displayStaminaBarAlways = Config.Bind<bool>("- Settings: Display -", "displayStaminaBarAlways", false, "Always display the stamina bar.");
             displayMiniMapAlways = Config.Bind<bool>("- Settings: Display -", "displayMiniMapAlways", false, "Always display the minimap.");
-            displayQuickSlotsAlways = Config.Bind<bool>("- Settings: Display -", "displayQuickSlotsAlways", false, "Always display the quick slots (Requires quick slots mod).");
+            displayRandyQuickSlotsAlways = Config.Bind<bool>("- Settings: Display -", "displayRandyQuickSlotsAlways", false, "Always display the quick slots (Requires quick slots mod).");
+            displayAzuQuickSlotsAlways = Config.Bind<bool>("- Settings: Display -", "displayAzuQuickSlotsAlways", false, "Always display the quick slots (Requires AzuExtendedPlayerInventory).");
             displayBetterUIFoodAlways = Config.Bind<bool>("- Settings: Display -", "displayBetterUIFoodAlways", false, "Always display the food bar (Requires Better UI).");
             displayCompassAlways = Config.Bind<bool>("- Settings: Display -", "displayCompassAlways", false, "Always display the compass (Requires aedenthorn's compass).");
             displayTimeAlways = Config.Bind<bool>("- Settings: Display -", "displayTimeAlways", false, "Always display the time or clock (Requires oryxen's display day and time mod).");
@@ -198,8 +198,6 @@ namespace ImmersiveHud
             // Display Scenario Settings - Health
             displayHealthOnDamage = Config.Bind<bool>("- Settings: Display - Health -", "displayHealthOnDamage", true, "Display the health panel when you take damage.");
             displayHealthInInventory = Config.Bind<bool>("Display - Health", "displayHealthInInventory", true, "Display your health when in the inventory.");
-            //displayHealthDuringRegen  = ImmersiveHud.Bind<bool>("Display - Health", "displayDuringRegen", false, "During health regen, the health panel will display.");
-            //displayHealthWhenDamaged  = ImmersiveHud.Bind<bool>("Display - Health", "displayWhenDamaged", false, "Display the health panel when damaged.");
             displayHealthWhenHungry = Config.Bind<bool>("Display - Health", "displayHealthWhenHungry", false, "Display the health panel when you are hungry.");
             displayHealthWhenEating = Config.Bind<bool>("Display - Health", "displayHealthWhenEating", false, "Display the health panel when you eat food.");
             displayHealthWhenBelow = Config.Bind<bool>("Display - Health", "displayHealthWhenBelow", true, "When you are at or below a certain health percentage, display the health panel.");
