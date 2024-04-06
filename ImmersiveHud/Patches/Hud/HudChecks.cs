@@ -131,29 +131,25 @@ namespace ImmersiveHud
                     hudElements["BetterUI_HPBar"].HudSetTargetAlpha(0);
                 }
             }
+            else if ((displayHealthWhenEating.Value && playerAteFood) || (displayHealthOnDamage.Value && playerTookDamage))
+            {
+                hudElements["healthpanel"].ShowHudForDuration();
+                hudElements["BetterUI_HPBar"].ShowHudForDuration();
+            }
+            else if (
+                    // Display health panel when below a given percentage
+                    (displayHealthWhenBelow.Value && player.GetHealthPercentage() <= healthPercentage.Value) ||
+                    (displayHealthWhenFoodBelow.Value && playerFoodPercentage <= foodPercentage.Value) ||
+                    (displayHealthWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
+                    )
+            {
+                hudElements["healthpanel"].HudSetTargetAlpha(1);
+                hudElements["BetterUI_HPBar"].HudSetTargetAlpha(1);
+            }
             else
             {
-                if ((displayHealthWhenEating.Value && playerAteFood) || (displayHealthOnDamage.Value && playerTookDamage))
-                {
-                    // Display health panel when eating food or taking damage
-                    hudElements["healthpanel"].ShowHudForDuration();
-                    hudElements["BetterUI_HPBar"].ShowHudForDuration();
-                }
-                else if (
-                        // Display health panel when below a given percentage
-                        (displayHealthWhenBelow.Value && player.GetHealthPercentage() <= healthPercentage.Value) ||
-                        (displayHealthWhenFoodBelow.Value && playerFoodPercentage <= foodPercentage.Value) ||
-                        (displayHealthWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
-                        )
-                {
-                    hudElements["healthpanel"].HudSetTargetAlpha(1);
-                    hudElements["BetterUI_HPBar"].HudSetTargetAlpha(1);
-                }
-                else
-                {
-                    hudElements["healthpanel"].HudSetTargetAlpha(0);
-                    hudElements["BetterUI_HPBar"].HudSetTargetAlpha(0);
-                }
+                hudElements["healthpanel"].HudSetTargetAlpha(0);
+                hudElements["BetterUI_HPBar"].HudSetTargetAlpha(0);
             }
         }
 

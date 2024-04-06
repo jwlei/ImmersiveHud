@@ -5,16 +5,22 @@ Please report any bugs here https://github.com/jwlei/ImmersiveHud/issues
 ## Features:﻿
 Enable or disable your hud elements with the press of a dedicated key that you can set in the options. When the key is pressed, the hud
 will be hidden permanently.
+
 How quickly the hud elements fade in and out can be controlled in the settings.
+
 Show the hud by pressing a key to show it for a specific amount of time,
 that can be changed. Which hud elements that are affected by this can be chosen.
-You can set whether or not the hud should be hidden when the game starts.
+
 Edit settings related to the crosshair such as its color and using a new
-crosshair style for normal gameplay and when the bow is being drawn. Crosshair styles can be replaced with your own images (however not all images may be suitable) and turning on or off custom crosshairs requires a relog.
+crosshair style for normal gameplay and when the bow is being drawn. 
+Crosshair styles can be replaced with your own images (however not all images may be suitable) and turning on or off custom crosshairs requires a relog.
 Control when the crosshair should show for different scenarios such as when
 equipping an item, using a bow, or looking at an activatable object.
-Conditional display settings. Hud elements can display on certain conditions such
-as when your health is below a certain percentage, when you switch items on your hot bar, or display at all times. More options to display hud elements when you are hungry as well.
+
+Conditional display settings. 
+Hud elements can display on certain conditions such
+as when your health is below a certain percentage, when you switch items on your hot bar, or display at all times. 
+More options to display hud elements when you are hungry as well.
 Each hud element has its own set of settings that you can mess around with!
 
 

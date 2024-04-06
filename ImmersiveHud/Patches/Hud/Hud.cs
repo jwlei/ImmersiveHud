@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BepInEx.Configuration;
+using UnityEngine;
 
 namespace ImmersiveHud
 {
@@ -9,10 +10,10 @@ namespace ImmersiveHud
         private static float notificationTimer = 0f;
         private static bool hudHidden;
 
-        public static void HudUpdateTransparency(HudElement hudElement)
+        public static void HudUpdateTransparency(HudElement hudElement, ConfigEntry<float> duration)
         {
             float lerpedAlpha;
-            lerpedAlpha = Mathf.Lerp(hudElement.lastSetAlpha, hudElement.targetAlpha, hudElement.timeFade / hudFadeDuration.Value);
+            lerpedAlpha = Mathf.Lerp(hudElement.lastSetAlpha, hudElement.targetAlpha, hudElement.timeFade / duration.Value);
 
             if (hudElement.elementName == "MiniMap")
             {
@@ -104,8 +105,14 @@ namespace ImmersiveHud
             // Reset timer when the target alpha changed.
             foreach (string name in hudElementNames)
             {
-                hudElements[name].HudElementCheckDisplayTimer();
-
+                if (name == "healthpanel" && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
+                {
+                    hudElements["healthpanel"].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
+                }
+                else
+                {
+                    hudElements[name].HudElementCheckDisplayTimer(showHudDuration);
+                }
                 if (!hudElements[name].exists || hudElements[name].element == null)
                     continue;
 

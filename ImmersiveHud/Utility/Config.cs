@@ -20,6 +20,7 @@ namespace ImmersiveHud
         public static ConfigEntry<bool> hudHiddenOnStart;
         public static ConfigEntry<float> hudFadeDuration;
         public static ConfigEntry<float> showHudDuration;
+        public static ConfigEntry<float> displayHealthOnDamageDuration;
 
         // Crosshair Settings
         public static ConfigEntry<bool> useCustomCrosshair;
@@ -65,6 +66,7 @@ namespace ImmersiveHud
 
         public static ConfigEntry<bool> displayHealthWhenHungry;
         public static ConfigEntry<bool> displayHealthOnDamage;
+        public static ConfigEntry<bool> displayHealthOnDamageSeparateTimer;
         public static ConfigEntry<bool> displayHealthWhenEating;
         public static ConfigEntry<bool> displayHealthWhenBelow;
         public static ConfigEntry<bool> displayHealthWhenFoodBelow;
@@ -198,6 +200,8 @@ namespace ImmersiveHud
 
             // Display Scenario Settings - Health
             displayHealthOnDamage = Config.Bind<bool>("- Settings: Display - Health -", "displayHealthOnDamage", true, "Display the health panel when you take damage.");
+            displayHealthOnDamageSeparateTimer = Config.Bind<bool>("- Settings: Display - Health -", "displayHealthOnDamageSeparateTimer", false, "Separate timer for health panel displaying when you take damage.");
+            displayHealthOnDamageDuration = Config.Bind<float>("- Main Settings -", "displayHealthOnDamageDuration", 1f, "Timer for health panel displaying when you take damage");
             displayHealthInInventory = Config.Bind<bool>("Display - Health", "displayHealthInInventory", true, "Display your health when in the inventory.");
             displayHealthWhenHungry = Config.Bind<bool>("Display - Health", "displayHealthWhenHungry", false, "Display the health panel when you are hungry.");
             displayHealthWhenEating = Config.Bind<bool>("Display - Health", "displayHealthWhenEating", false, "Display the health panel when you eat food.");

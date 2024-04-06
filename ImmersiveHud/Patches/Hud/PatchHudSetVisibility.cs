@@ -31,12 +31,12 @@ namespace ImmersiveHud
                     if (!hudElements[name].exists || hudElements[name].element == null)
                         continue;
 
-                    hudElements[name].HudCheckLerpDuration();
+                    hudElements[name].HudCheckLerpDuration(hudFadeDuration);
 
                     if (!hudElements[name].targetAlphaReached)
                     {
                         hudElements[name].timeFade += Time.deltaTime;
-                        HudUpdateTransparency(hudElements[name]);
+                        HudUpdateTransparency(hudElements[name], showHudDuration);
                     }
                     else
                     {

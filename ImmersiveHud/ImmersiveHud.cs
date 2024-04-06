@@ -10,7 +10,7 @@ namespace ImmersiveHud
     {
         private const string MID = "jwlei.ImmersiveHud";
         private const string modName = "Immersive Hud";
-        private const string pluginVersion = "1.2.0";
+        private const string pluginVersion = "2.1.0";
 
         private void Awake()
         {
@@ -20,6 +20,7 @@ namespace ImmersiveHud
             if (!isEnabled.Value)
             {
                 Logger.LogInfo("Immersive Hud is disabled in the mod config");
+                harmony.UnpatchSelf();
                 return;
             }
             harmony.PatchAll();

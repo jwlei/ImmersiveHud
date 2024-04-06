@@ -1,6 +1,6 @@
 {
     "name": "ImmersiveHud",
-    "version_number": "1.1.0",
+    "version_number": "1.2.0",
     "website_url": "https://www.nexusmods.com/valheim/mods/2732",
     "description": "Hide or dynamicly hide UI elements based on conditions.",
     "dependencies": [

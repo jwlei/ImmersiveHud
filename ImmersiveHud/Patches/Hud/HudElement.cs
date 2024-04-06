@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -75,10 +76,10 @@ namespace ImmersiveHud
                     targetAlpha = alpha;
             }
 
-            public void HudCheckLerpDuration()
+            public void HudCheckLerpDuration(ConfigEntry<float> duration)
             {
                 // Check if the element has reached the target alpha.
-                if (timeFade >= hudFadeDuration.Value)
+                if (timeFade >= duration.Value)
                     targetAlphaReached = true;
                 else
                     targetAlphaReached = false;
@@ -95,10 +96,9 @@ namespace ImmersiveHud
                 isVisible = true;
             }
 
-            public void HudElementCheckDisplayTimer()
-            {
-                // If the element is visible, check if it has been visible for the set time.
-                if (timeDisplay >= showHudDuration.Value && isVisible)
+            public void HudElementCheckDisplayTimer(ConfigEntry<float> duration)
+            {                // If the element is visible, check if it has been visible for the set time.
+                if (timeDisplay >= duration.Value && isVisible)
                 {
                     targetAlpha = 0;
                     isVisible = false;
