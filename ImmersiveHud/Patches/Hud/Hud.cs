@@ -32,7 +32,10 @@ namespace ImmersiveHud
 
             // Reset timer when changing map modes.
             if (prevState != isMiniMapActive)
+            {
                 hudElements["MiniMap"].timeFade = 0;
+                hudElements["MUIMap"].timeFade = 0;
+            }
 
             GetPlayerTotalFoodValue(player);
 
@@ -129,7 +132,7 @@ namespace ImmersiveHud
         private static void ForceVanillaStaminabar(Hud __instance)
         {
             // FIX: vanilla stam bar when eating food.
-            if (!hudElements["BetterUI_StaminaBar"].exists)
+            if (!hudElements["BetterUI_StaminaBar"].exists || !hudElements["MUI_StaminaBar"].exists)
             {
                 hudElements["staminapanel"].element.gameObject.SetActive(true);
                 __instance.m_staminaAnimator.SetBool("Visible", true);

@@ -25,6 +25,15 @@ namespace ImmersiveHud
             "DayTimePanel",
             "KeyHints",
             "QuickAccessBar",
+            "MUIMap",
+            "MUI_HPBar",
+            "MUI_StaminaBar",
+            "MUI_EitrBar",
+            "MUI_GuardianPowerBar",
+            "MUI_FoodBar",
+            "food0",
+            "food1",
+            "food2",
             };
 
         public enum notificationTypes
