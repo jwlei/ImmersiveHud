@@ -24,7 +24,10 @@ namespace ImmersiveHud
                 HudSetValues(Input.GetKeyDown(hideHudKey.Value.MainKey), Input.GetKey(showHudKey.Value.MainKey));
 
                 // Set vanilla stamina bar to always be active so hiding and showing works properly
-                ForceVanillaStaminabar(__instance);
+                if (!AzuMinimalUiEnabled.Value)
+                {
+                    ForceVanillaStaminabar(__instance);
+                }
 
                 foreach (string name in hudElementNames)
                 {

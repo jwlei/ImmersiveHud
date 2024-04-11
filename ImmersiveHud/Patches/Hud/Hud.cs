@@ -92,7 +92,7 @@ namespace ImmersiveHud
             }
             else
             {
-                CheckHealthDisplay(player);
+                CheckHealthBar(player);
                 CheckFoodBar();
                 CheckStaminaBar(player);
                 CheckForsakenPower();
@@ -108,9 +108,9 @@ namespace ImmersiveHud
             // Reset timer when the target alpha changed.
             foreach (string name in hudElementNames)
             {
-                if (name == "healthpanel" && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
+                if (name == GetHealthbarElement() && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
                 {
-                    hudElements["healthpanel"].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
+                    hudElements[name].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
                 }
                 else
                 {
@@ -151,6 +151,7 @@ namespace ImmersiveHud
 
                 hudElements[name].setElement(hudRoot.Find(name));
                 hudElements[name].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
+                Debug.Log(name + " added CanvasGroup");
             }
         }
 

@@ -74,11 +74,13 @@ namespace ImmersiveHud
 
             // Food Bar
             if (showFoodBarOnKeyPressed.Value)
+            {
                 hudElements["BetterUI_FoodBar"].ShowHudForDuration();
-            hudElements["MUI_FoodBar"].ShowHudForDuration();
-            hudElements["food0"].ShowHudForDuration();
-            hudElements["food1"].ShowHudForDuration();
-            hudElements["food2"].ShowHudForDuration();
+                hudElements["MUI_FoodBar"].ShowHudForDuration();
+                hudElements["food0"].ShowHudForDuration();
+                hudElements["food1"].ShowHudForDuration();
+                hudElements["food2"].ShowHudForDuration();
+            }
 
             // Stamina
             if (showStaminaBarOnKeyPressed.Value)
@@ -127,23 +129,23 @@ namespace ImmersiveHud
                 hudElements["KeyHints"].ShowHudForDuration();
         }
 
-        private static void CheckHealthDisplay(Player player)
+        private static void CheckHealthBar(Player player)
         {
-            string elementName = GetHealthbarElement();
+            string nameHealthbar = GetHealthbarElement();
 
             // Health Display
             if (displayHealthAlways.Value || (displayHealthInInventory.Value && InventoryGui.IsVisible()))
             {
-                hudElements[elementName].targetAlpha = 1;
+                hudElements[nameHealthbar].targetAlpha = 1;
 
                 if (!displayHealthInInventory.Value && InventoryGui.IsVisible())
                 {
-                    hudElements[elementName].HudSetTargetAlpha(0);
+                    hudElements[nameHealthbar].HudSetTargetAlpha(0);
                 }
             }
             else if ((displayHealthWhenEating.Value && playerAteFood) || (displayHealthOnDamage.Value && playerTookDamage))
             {
-                hudElements[elementName].ShowHudForDuration();
+                hudElements[nameHealthbar].ShowHudForDuration();
             }
             else if (
                     // Display health panel when below a given percentage
@@ -152,18 +154,18 @@ namespace ImmersiveHud
                     (displayHealthWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
                     )
             {
-                hudElements[elementName].HudSetTargetAlpha(1);
+                hudElements[nameHealthbar].HudSetTargetAlpha(1);
             }
             else
             {
-                hudElements[elementName].HudSetTargetAlpha(0);
+                hudElements[nameHealthbar].HudSetTargetAlpha(0);
             }
         }
 
         private static void CheckFoodBar()
         {
             // Food Bar Display
-            if (displayBetterUIFoodAlways.Value || (displayFoodBarInInventory.Value && InventoryGui.IsVisible()))
+            if (displayFoodBarAlways.Value || (displayFoodBarInInventory.Value && InventoryGui.IsVisible()))
             {
                 hudElements["BetterUI_FoodBar"].targetAlpha = 1;
                 hudElements["MUI_FoodBar"].targetAlpha = 1;
@@ -172,11 +174,13 @@ namespace ImmersiveHud
                 hudElements["food2"].targetAlpha = 1;
 
                 if (!displayFoodBarInInventory.Value && InventoryGui.IsVisible())
+                {
                     hudElements["BetterUI_FoodBar"].HudSetTargetAlpha(0);
-                hudElements["MUI_FoodBar"].HudSetTargetAlpha(0);
-                hudElements["food0"].HudSetTargetAlpha(0);
-                hudElements["food1"].HudSetTargetAlpha(0);
-                hudElements["food2"].HudSetTargetAlpha(0);
+                    hudElements["MUI_FoodBar"].HudSetTargetAlpha(0);
+                    hudElements["food0"].HudSetTargetAlpha(0);
+                    hudElements["food1"].HudSetTargetAlpha(0);
+                    hudElements["food2"].HudSetTargetAlpha(0);
+                }
             }
             else
             {
@@ -193,15 +197,7 @@ namespace ImmersiveHud
                     }
 
                     // Display food bar when below a given percentage.
-                    if (displayFoodBarWhenBelow.Value && playerFoodPercentage <= foodPercentage.Value)
-                    {
-                        hudElements["BetterUI_FoodBar"].HudSetTargetAlpha(1);
-                        hudElements["MUI_FoodBar"].HudSetTargetAlpha(1);
-                        hudElements["food0"].HudSetTargetAlpha(1);
-                        hudElements["food1"].HudSetTargetAlpha(1);
-                        hudElements["food2"].HudSetTargetAlpha(1);
-                    }
-                    else if (displayFoodBarWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
+                    if (displayFoodBarWhenBelow.Value && ((playerFoodPercentage <= foodPercentage.Value) || (playerHungerCount >= foodHungerAmount.Value)))
                     {
                         hudElements["BetterUI_FoodBar"].HudSetTargetAlpha(1);
                         hudElements["MUI_FoodBar"].HudSetTargetAlpha(1);
@@ -222,18 +218,17 @@ namespace ImmersiveHud
         }
 
         private static void CheckStaminaBar(Player player)
-
         {
-            string elementName = GetStaminabarElement();
+            string nameStaminabar = GetStaminabarElement();
 
             // Stamina Bar Display
             if (displayStaminaBarAlways.Value || (displayStaminaBarInInventory.Value && InventoryGui.IsVisible()))
             {
-                hudElements[elementName].targetAlpha = 1;
+                hudElements[nameStaminabar].targetAlpha = 1;
 
                 if (!displayStaminaBarInInventory.Value && InventoryGui.IsVisible())
                 {
-                    hudElements[elementName].HudSetTargetAlpha(0);
+                    hudElements[nameStaminabar].HudSetTargetAlpha(0);
                 }
             }
             else
@@ -241,13 +236,13 @@ namespace ImmersiveHud
                 // Display stamina bar when stamina is used
                 if (displayStaminaBarOnUse.Value && playerUsedStamina)
                 {
-                    hudElements[elementName].ShowHudForDuration();
+                    hudElements[nameStaminabar].ShowHudForDuration();
                 }
 
                 // Display stamina bar when eating food
                 if (displayStaminaBarWhenEating.Value && playerAteFood)
                 {
-                    hudElements[elementName].ShowHudForDuration();
+                    hudElements[nameStaminabar].ShowHudForDuration();
                 }
 
                 // Display stamina bar when below a given percentage.
@@ -257,11 +252,11 @@ namespace ImmersiveHud
                     (displayStaminaBarWhenHungry.Value && playerHungerCount >= foodHungerAmount.Value)
                    )
                 {
-                    hudElements[elementName].HudSetTargetAlpha(1);
+                    hudElements[nameStaminabar].HudSetTargetAlpha(1);
                 }
                 else
                 {
-                    hudElements[elementName].HudSetTargetAlpha(0);
+                    hudElements[nameStaminabar].HudSetTargetAlpha(0);
                 }
             }
         }

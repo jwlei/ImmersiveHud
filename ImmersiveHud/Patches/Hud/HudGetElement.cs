@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace ImmersiveHud
 {
@@ -10,40 +11,39 @@ namespace ImmersiveHud
     {
         private static string GetHealthbarElement()
         {
-            string elementName;
+            string healthbar;
             if (AzuMinimalUiEnabled.Value && hudElements["MUI_HPBar"].exists)
             {
-                elementName = "MUI_HPBar";
+                healthbar = "MUI_HPBar";
             }
             else if (BetterUIEnabled.Value && hudElements["BetterUI_HPBar"].exists)
             {
-                elementName = "BetterUI_HPBar";
+                healthbar = "BetterUI_HPBar";
             }
             else
             {
-                elementName = "healthpanel";
+                healthbar = "healthpanel";
             }
-
-            return elementName;
+            return healthbar;
         }
 
         private static string GetStaminabarElement()
         {
-            string elementName;
+            string staminabar;
             if (AzuMinimalUiEnabled.Value && hudElements["MUI_StaminaBar"].exists)
             {
-                elementName = "MUI_StaminaBar";
+                staminabar = "MUI_StaminaBar";
             }
             else if (BetterUIEnabled.Value && hudElements["BetterUI_StaminaBar"].exists)
             {
-                elementName = "BetterUI_StaminaBar";
+                staminabar = "BetterUI_StaminaBar";
             }
             else
             {
-                elementName = "staminapanel";
+                staminabar = "staminapanel";
             }
 
-            return elementName;
+            return staminabar;
         }
 
         private static string GetQuickslotElement()
