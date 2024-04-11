@@ -148,39 +148,20 @@ namespace ImmersiveHud
 
         private void LoadConfig()
         {
-            string sectionGeneral = "- General -";
-            string sectionMainSettings = "- Main settings -";
-            string sectionDisplayAlways = "- Settings: Display - Always -";
-            string sectionDisplayOnKeyPress = "- Settings: Display - On 'Show HUD' key press";
-            string sectionCrosshair = "- Crosshair -";
-
-            string sectionDisplayHealth = "- Settings: Display - Health -";
-            string sectionDisplayStamina = "- Settings: Display - Stamina -";
-            string sectionDisplayFood = "- Settings: Display - Food -";
-
-            string sectionDisplayPower = "- Settings: Display - Forsaken Power -";
-            string sectionDisplayHotKeyBar = "- Settings: Display - Hot Key Bar -";
-            string sectionDisplayStatusEffects = "- Settings: Display - Status Effects -";
-            string sectionDisplayMiniMap = "- Settings: Display - MiniMap -";
-            string sectionCompatibility = "- Compatibility -";
-            string sectionCompatibilityQuickslots = "- Compatibility: Quickslots -";
-            string sectionCompatibilityTime = "- Compatibility: Day and Time -";
-            string sectionCompatibilityCompass = "- Compatibility: Compass -";
-            string sectionCompatibilityFoodbar = "- Compatibility: Display - Food Bar -";
-            string sectionCompatibilityDisplayAlways = "- Compatibility: Display - Always -";
-            string sectionMisc = "- Misc -";
-
+            string sectionGeneral = "1.0 - General";
             // General
             isEnabled = Config.Bind<bool>(sectionGeneral, "Enable Mod", true, "Enable or disable the mod");
             nexusID = Config.Bind<int>(sectionGeneral, "NexusID", 2732, "Nexus mod ID for updates");
 
+            string sectionMainSettings = "1.1 - Main settings";
             // Main Settings --------------------------------------------------------------------------------
-            hideHudKey = Config.Bind<KeyboardShortcut>(sectionMainSettings, "hideHudKey", new KeyboardShortcut(KeyCode.H), "Keyboard shortcut or mouse button to hide the hud permanently.");
-            hudHiddenNotification = Config.Bind<bool>(sectionMainSettings, "hudHiddenNotification", true, "Enable notifications in the top left corner for hiding the hud.");
-            hudFadeDuration = Config.Bind<float>(sectionMainSettings, "hudFadeDuration", 1f, "How quickly the hud fades in or out.");
-            showHudDuration = Config.Bind<float>(sectionMainSettings, "showHudDuration", 1f, "How long a hud element should stay up for when it is activated for certain conditions.");
-            showHudKey = Config.Bind<KeyboardShortcut>(sectionMainSettings, "showHudKey", new KeyboardShortcut(KeyCode.G), "Keyboard shortcut or mouse button to display the hud for a duration.");
+            showHudKey = Config.Bind<KeyboardShortcut>(sectionMainSettings, "Show HUD", new KeyboardShortcut(KeyCode.G), "Keyboard shortcut or mouse button to display the hud for a duration.");
+            hideHudKey = Config.Bind<KeyboardShortcut>(sectionMainSettings, "Hide HUD", new KeyboardShortcut(KeyCode.H), "Keyboard shortcut or mouse button to hide the hud permanently.");
+            hudHiddenNotification = Config.Bind<bool>(sectionMainSettings, "Enable notification for HUD Hide-Show", true, "Enable notifications in the top left corner for hiding the hud.");
+            hudFadeDuration = Config.Bind<float>(sectionMainSettings, "HUD fade duration", 1f, "How quickly the hud fades in or out.");
+            showHudDuration = Config.Bind<float>(sectionMainSettings, "HUD shown duration", 1f, "How long a hud element should stay up for when it is activated for certain conditions.");
 
+            string sectionDisplayAlways = "2.0 - Always display";
             // Always Display Elements Settings --------------------------------------------------------------------------------
             displayHealthAlways = Config.Bind<bool>(sectionDisplayAlways, "Health bar", false, "Always display the health panel.");
             displayStaminaBarAlways = Config.Bind<bool>(sectionDisplayAlways, "Stamina bar", false, "Always display the stamina bar.");
@@ -191,6 +172,7 @@ namespace ImmersiveHud
             displayMiniMapAlways = Config.Bind<bool>(sectionDisplayAlways, "Minimap", false, "Always display the minimap.");
             displayCrosshairAlways = Config.Bind<bool>(sectionDisplayAlways, "Crosshair", true, "Always display the crosshair, overriding other display crosshair settings.");
 
+            string sectionDisplayOnKeyPress = "2.1 - Show on hotkey press";
             // Show on key press --------------------------------------------------------------------------------
             showHealthOnKeyPressed = Config.Bind<bool>(sectionDisplayOnKeyPress, "Health bar", true, "Show the health panel when the show hud key is pressed.");
             showStaminaBarOnKeyPressed = Config.Bind<bool>(sectionDisplayOnKeyPress, "Stamina bar", true, "Show the stamina bar when the show hud key is pressed.");
@@ -200,20 +182,20 @@ namespace ImmersiveHud
             showStatusEffectsOnKeyPressed = Config.Bind<bool>(sectionDisplayOnKeyPress, "Status effects", true, "Show the status effects when the show hud key is pressed.");
             showMiniMapOnKeyPressed = Config.Bind<bool>(sectionDisplayOnKeyPress, "Minimap", true, "Show the minimap when the show hud key is pressed.");
 
+            string sectionDisplayHealth = "3.0 - Healthbar";
             // Display Scenario Settings - Health --------------------------------------------------------------------------------
             displayHealthOnDamage = Config.Bind<bool>(sectionDisplayHealth, "On damage", true, "Display the health panel when you take damage.");
-            displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "Use separate timer for 'On damage'", false, "Separate timer for health panel displaying when you take damage.");
-            displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "Duration for time for 'On damage'", 1f, "Timer for health panel displaying when you take damage");
+            displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
+            displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
             displayHealthInInventory = Config.Bind<bool>(sectionDisplayHealth, "In inventory", true, "Display your health when in the inventory.");
             displayHealthWhenHungry = Config.Bind<bool>(sectionDisplayHealth, "When hungry", false, "Display the health panel when you are hungry.");
             displayHealthWhenEating = Config.Bind<bool>(sectionDisplayHealth, "When eating", false, "Display the health panel when you eat food.");
             displayHealthWhenBelow = Config.Bind<bool>(sectionDisplayHealth, "When below health threshold", true, "When you are at or below a certain health percentage, display the health panel.");
             displayHealthWhenFoodBelow = Config.Bind<bool>(sectionDisplayHealth, "When below food threshold", true, "When you are at or below a certain food percentage, display the health panel.");
-
             healthPercentage = Config.Bind<float>(sectionDisplayHealth, "Health percentage", 0.75f, new ConfigDescription("Health percentage at which the health panel should be displayed", new AcceptableValueRange<float>(0f, 1f)));
 
+            string sectionDisplayStamina = "3.1 - Staminabar";
             // Display Scenario Settings - Stamina --------------------------------------------------------------------------------
-
             displayStaminaBarOnUse = Config.Bind<bool>(sectionDisplayStamina, "On use", true, "Display the stamina bar when stamina is used.");
             displayStaminaBarInInventory = Config.Bind<bool>(sectionDisplayStamina, "In inventory", true, "Display the stamina bar when in the inventory.");
             displayStaminaBarWhenHungry = Config.Bind<bool>(sectionDisplayStamina, "When hungry", false, "Display the stamina bar when you are hungry.");
@@ -222,37 +204,44 @@ namespace ImmersiveHud
             displayStaminaBarWhenFoodBelow = Config.Bind<bool>(sectionDisplayStamina, "When below food threshold", false, "When you are at or below a certain food percentage, display the stamina bar.");
             staminaPercentage = Config.Bind<float>(sectionDisplayStamina, "Stamina percentage", 0.99f, new ConfigDescription("Stamina percentage at which the stamina bar should be displayed.", new AcceptableValueRange<float>(0f, 1f)));
 
-            // Display Scenario Settings - Food --------------------------------------------------------------------------------
-            foodHungerAmount = Config.Bind<int>(sectionDisplayFood, "foodHungerAmount", 3, new ConfigDescription("The minimum amount of food icons that need to be flashing to be considered hungry.", new AcceptableValueRange<int>(1, 3)));
-            foodPercentage = Config.Bind<float>(sectionDisplayFood, "foodPercentage", 0.35f, new ConfigDescription("Food percentage at which the food bar, health, or stamina should be displayed.", new AcceptableValueRange<float>(0f, 1f)));
-
-            // Display Scenario Settings - Forsaken Power --------------------------------------------------------------------------------
-            displayPowerInInventory = Config.Bind<bool>(sectionDisplayPower, "In inventory", true, "Display the forsaken power when in the inventory.");
-            displayPowerOnActivation = Config.Bind<bool>(sectionDisplayPower, "On activation", false, "Display the forsaken power when the key to use it is pressed.");
-
+            string sectionDisplayHotKeyBar = "3.2 - Hotkey bar";
             // Display Scenario Settings - Hot Key Bar --------------------------------------------------------------------------------
             displayHotKeyBarInInventory = Config.Bind<bool>(sectionDisplayHotKeyBar, "In inventory", true, "Display the hot key bar when in the inventory.");
             displayHotKeyBarOnItemSwitch = Config.Bind<bool>(sectionDisplayHotKeyBar, "On item switch", false, "Display the hot key bar when you press any key for your hot bar items.");
             displayHotKeyBarWhenItemEquipped = Config.Bind<bool>(sectionDisplayHotKeyBar, "On equipped item", false, "Display the hot key bar when you have an item equipped in either hand.");
 
+            string sectionDisplayStatusEffects = "3.3 - Status Effects";
             // Display Scenario Settings - Status Effects --------------------------------------------------------------------------------
             displayStatusEffectsInInventory = Config.Bind<bool>(sectionDisplayStatusEffects, "In inventory", true, "Display status effects when in the inventory.");
 
+            string sectionDisplayPower = "3.4 - Forsaken Power";
+            // Display Scenario Settings - Forsaken Power --------------------------------------------------------------------------------
+            displayPowerInInventory = Config.Bind<bool>(sectionDisplayPower, "In inventory", true, "Display the forsaken power when in the inventory.");
+            displayPowerOnActivation = Config.Bind<bool>(sectionDisplayPower, "On activation", false, "Display the forsaken power when the key to use it is pressed.");
+
+            string sectionDisplayMiniMap = "- 3.5 Minimap";
             // Display Scenario Settings - MiniMap --------------------------------------------------------------------------------
-            displayMiniMapInInventory = Config.Bind<bool>(sectionDisplayMiniMap, "displayMiniMapInInventory", true, "Display the minimap when in the inventory.");
+            displayMiniMapInInventory = Config.Bind<bool>(sectionDisplayMiniMap, "In inventory", true, "Display the minimap when in the inventory.");
 
+            string sectionCrosshair = "- 3.6 Crosshair";
             // Crosshair Settings --------------------------------------------------------------------------------
-            useCustomCrosshair = Config.Bind<bool>(sectionCrosshair, "useCustomCrosshair", false, new ConfigDescription("Enable or disable the new crosshair.", null, new ConfigurationManagerAttributes { Order = 1 }));
-            useCustomBowCrosshair = Config.Bind<bool>(sectionCrosshair, "useCustomBowCrosshair", false, new ConfigDescription("Enable or disable the new crosshair for the bow draw.", null, new ConfigurationManagerAttributes { Order = 2 }));
-            crosshairColor = Config.Bind<Color>(sectionCrosshair, "crosshairColor", Color.white, "Color and transparency of the crosshair.");
-            crosshairBowDrawColor = Config.Bind<Color>(sectionCrosshair, "crosshairBowDrawColor", Color.yellow, "Color and transparency of the bow draw crosshair.");
-            disableStealthHud = Config.Bind<bool>(sectionCrosshair, "disableStealthHud", false, "Disable the stealth bar and indicator so it doesn't display.");
-            displayBowDrawCrosshair = Config.Bind<bool>(sectionCrosshair, "displayBowDrawCrosshair", true, "Display the bow draw crosshair.");
-            displayCrosshairWhenBuilding = Config.Bind<bool>(sectionCrosshair, "displayCrosshairWhenBuilding", true, "Display the crosshair when you have the hammer equipped.");
-            displayCrosshairOnActivation = Config.Bind<bool>(sectionCrosshair, "displayCrosshairOnActivation", false, "Display crosshair when hovering over an activatable object.");
-            displayCrosshairOnEquipped = Config.Bind<bool>(sectionCrosshair, "displayCrosshairOnEquipped", false, "Display crosshair when an item is equipped in either hand.");
-            displayCrosshairOnBowEquipped = Config.Bind<bool>(sectionCrosshair, "displayCrosshairOnBowEquipped", false, "Display crosshair when the bow is equipped.");
+            useCustomCrosshair = Config.Bind<bool>(sectionCrosshair, "Use custom crosshair", false, new ConfigDescription("Enable or disable the new crosshair.", null, new ConfigurationManagerAttributes { Order = 1 }));
+            useCustomBowCrosshair = Config.Bind<bool>(sectionCrosshair, "Use custom Bow crosshair", false, new ConfigDescription("Enable or disable the new crosshair for the bow draw.", null, new ConfigurationManagerAttributes { Order = 2 }));
+            crosshairColor = Config.Bind<Color>(sectionCrosshair, "Color", Color.white, "Color and transparency of the crosshair.");
+            crosshairBowDrawColor = Config.Bind<Color>(sectionCrosshair, "Bow Draw crosshair color", Color.yellow, "Color and transparency of the bow draw crosshair.");
+            disableStealthHud = Config.Bind<bool>(sectionCrosshair, "Disable stealth hud", false, "Disable the stealth bar and indicator so it doesn't display.");
+            displayBowDrawCrosshair = Config.Bind<bool>(sectionCrosshair, "Show bow draw crosshair", true, "Display the bow draw crosshair.");
+            displayCrosshairWhenBuilding = Config.Bind<bool>(sectionCrosshair, "Show  while building", true, "Display the crosshair when you have the hammer equipped.");
+            displayCrosshairOnActivation = Config.Bind<bool>(sectionCrosshair, "Show  on object-hover", false, "Display crosshair when hovering over an activatable object.");
+            displayCrosshairOnEquipped = Config.Bind<bool>(sectionCrosshair, "Show on equipped item", false, "Display crosshair when an item is equipped in either hand.");
+            displayCrosshairOnBowEquipped = Config.Bind<bool>(sectionCrosshair, "Show on equipped bow", false, "Display crosshair when the bow is equipped.");
 
+            string sectionDisplayFood = "3.7 - Food";
+            // Display Scenario Settings - Food --------------------------------------------------------------------------------
+            foodHungerAmount = Config.Bind<int>(sectionDisplayFood, "foodHungerAmount", 3, new ConfigDescription("The minimum amount of food icons that need to be flashing to be considered hungry.", new AcceptableValueRange<int>(1, 3)));
+            foodPercentage = Config.Bind<float>(sectionDisplayFood, "foodPercentage", 0.35f, new ConfigDescription("Food percentage at which the food bar, health, or stamina should be displayed.", new AcceptableValueRange<float>(0f, 1f)));
+
+            string sectionCompatibility = "4.0 - Compatibility";
             // Compatibility --------------------------------------------------------------------------------
             AzuMinimalUiEnabled = Config.Bind<bool>(sectionCompatibility, "Minimal UI", false, "Enable compatibility for Azumatt's MinimalUI mod.");
             AzuQuickSlotsEnabled = Config.Bind<bool>(sectionCompatibility, "AzuExtendedPlayerInventory", false, "Enable compatibility for Azumatt's ExtendedPlayerInventory mod.");
@@ -261,16 +250,25 @@ namespace ImmersiveHud
             BetterUIEnabled = Config.Bind<bool>(sectionCompatibility, "BetterUI", false, "Enable compatibility for Better UI.");
             oryxenTimeEnabled = Config.Bind<bool>(sectionCompatibility, "Display Day and Time in HUD", false, "Enable compatibility for oryxen's display day and time mod.");
 
+            string sectionCompatibilityQuickslots = "4.1 - Compatibility: Quickslots";
             // Display Scenario Settings - Quick Slots --------------------------------------------------------------------------------
             displayQuickSlotsInInventory = Config.Bind<bool>(sectionCompatibilityQuickslots, "In inventory", false, "Display quick slots when in the inventory.");
             showQuickSlotsOnKeyPressed = Config.Bind<bool>(sectionCompatibilityQuickslots, "On key pressed", false, "Show the quick slots when the show hud key is pressed.");
-            displayQuickSlotsAlways = Config.Bind<bool>(sectionDisplayAlways, "Always display QuickSlots", false, "Always display the quick slots (Requires 'AzuExtendedInventory' or 'Equipment and Quick Slots').");
+            displayQuickSlotsAlways = Config.Bind<bool>(sectionDisplayAlways, "Always display", false, "Always display the quick slots (Requires [AzuExtendedInventory] or [Equipment and Quick Slots]).");
 
+            string sectionCompatibilityTime = "4.3 - Compatibility: Day and Time";
+            // Display Scenario Settings - Clock and Day Time --------------------------------------------------------------------------------
+            displayTimeInInventory = Config.Bind<bool>(sectionCompatibilityTime, "In inventory", false, "Display the time when in the inventory.");
+            showTimeOnKeyPressed = Config.Bind<bool>(sectionCompatibilityTime, "On key pressed", false, "Show the time when the show hud key is pressed.");
+            displayTimeAlways = Config.Bind<bool>(sectionCompatibilityTime, "Always display", false, "Always display the time or clock (Requires oryxen's display day and time mod).");
+
+            string sectionCompatibilityCompass = "4.4 - Compatibility: Compass";
             // Display Scenario Settings - Compass --------------------------------------------------------------------------------
             displayCompassInInventory = Config.Bind<bool>(sectionCompatibilityCompass, "In inventory", false, "Display the compass when in the inventory.");
             showCompassOnKeyPressed = Config.Bind<bool>(sectionCompatibilityCompass, "On key pressed", false, "Show the compass when the show hud key is pressed.");
             displayCompassAlways = Config.Bind<bool>(sectionCompatibilityCompass, "Always", false, "Always display the compass (Requires aedenthorn's compass).");
 
+            string sectionCompatibilityFoodbar = "4.5 - Compatibility: Food bar";
             // Display Scenario Settings - Food Bar (Better UI) --------------------------------------------------------------------------------
             displayFoodBarInInventory = Config.Bind<bool>(sectionCompatibilityFoodbar, "displayBetterUIFoodBarInInventory", true, "Display the food bar when in the inventory.");
             displayFoodBarWhenHungry = Config.Bind<bool>(sectionCompatibilityFoodbar, "displayFoodBarWhenHungry", true, "Display the food bar when you are hungry.");
@@ -284,13 +282,9 @@ namespace ImmersiveHud
             hungerNotificationText = Config.Bind<string>(sectionCompatibilityFoodbar, "hungerNotificationText", "I'm feeling a bit peckish.", "Message for hunger notification.");
             hungerNotificationType = Config.Bind<notificationTypes>(sectionCompatibilityFoodbar, "hungerNotificationType", notificationTypes.SmallTopLeft, new ConfigDescription("Notification types for the hunger notification."));
 
-            // Display Scenario Settings - Clock and Day Time --------------------------------------------------------------------------------
-            displayTimeInInventory = Config.Bind<bool>(sectionCompatibilityTime, "displayTimeInInventory", false, "Display the time when in the inventory.");
-            showTimeOnKeyPressed = Config.Bind<bool>(sectionCompatibilityTime, "showTimeOnKeyPressed", false, "Show the time when the show hud key is pressed.");
-            displayTimeAlways = Config.Bind<bool>(sectionCompatibilityTime, "displayTimeAlways", false, "Always display the time or clock (Requires oryxen's display day and time mod).");
-
+            string sectionMisc = "9.0 - Misc";
             // Misc --------------------------------------------------------------------------------
-            hudHiddenOnStart = Config.Bind<bool>(sectionMisc, "hudHiddenOnStart", false, "Hide the hud when the game is started.");
+            hudHiddenOnStart = Config.Bind<bool>(sectionMisc, "Hide HUD on start", false, "Hide the hud when the game is started.");
         }
     }
 }
