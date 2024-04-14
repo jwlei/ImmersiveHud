@@ -22,6 +22,7 @@ namespace ImmersiveHud
                 GetPlayerState(hudRoot, player);
                 setCompatibility(hudRoot);
                 HudSetValues(Input.GetKeyDown(hideHudKey.Value.MainKey), Input.GetKey(showHudKey.Value.MainKey));
+                DebugListOfHudElements(hudRoot, Input.GetKeyDown(compatibilityIdHotkey.Value.MainKey));
 
                 // Set vanilla stamina bar to always be active so hiding and showing works properly
                 if (!AzuMinimalUiEnabled.Value)
@@ -43,7 +44,7 @@ namespace ImmersiveHud
                     }
                     else
                     {
-                        hudElements[name].timeDisplay += Time.deltaTime;
+                        hudElements[name].timeDisplayed += Time.deltaTime;
                     }
                 }
             }

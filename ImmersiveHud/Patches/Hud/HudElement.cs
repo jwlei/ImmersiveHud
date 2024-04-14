@@ -54,7 +54,7 @@ namespace ImmersiveHud
             public string elementName;
 
             public float timeFade;
-            public float timeDisplay;
+            public float timeDisplayed;
             public float targetAlphaPrev;
             public float targetAlpha;
             public float lastSetAlpha;
@@ -101,13 +101,13 @@ namespace ImmersiveHud
                     return;
 
                 targetAlpha = 1;
-                timeDisplay = 0;
+                timeDisplayed = 0;
                 isVisible = true;
             }
 
             public void HudElementCheckDisplayTimer(ConfigEntry<float> duration)
-            {                // If the element is visible, check if it has been visible for the set time.
-                if (timeDisplay >= duration.Value && isVisible)
+            {                // If the element is visible, check if it has been visible for the set time
+                if (timeDisplayed >= duration.Value && isVisible)
                 {
                     targetAlpha = 0;
                     isVisible = false;
@@ -118,13 +118,7 @@ namespace ImmersiveHud
             {
                 // Reset timers for fade and display.
                 timeFade = 0;
-                timeDisplay = 0;
-            }
-
-            public static void DebugListOfHudElements(Transform hud)
-            {
-                foreach (Transform t in hud.GetComponentsInChildren<Transform>(true))
-                    Debug.Log(t.name);
+                timeDisplayed = 0;
             }
         }
     }

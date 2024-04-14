@@ -144,6 +144,8 @@ namespace ImmersiveHud
 
         public static ConfigEntry<bool> showKeyHintsOnKeyPressed;
 
+        public static ConfigEntry<KeyboardShortcut> compatibilityIdHotkey;
+
         // -- HUDELEMENTS
 
         private void LoadConfig()
@@ -185,8 +187,8 @@ namespace ImmersiveHud
             string sectionDisplayHealth = "3.0 - Healthbar";
             // Display Scenario Settings - Health --------------------------------------------------------------------------------
             displayHealthOnDamage = Config.Bind<bool>(sectionDisplayHealth, "1. On damage", true, "Display the health panel when you take damage.");
-            //displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "2. Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
-            //displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "3. Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
+            displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "2. Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
+            displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "3. Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
             displayHealthInInventory = Config.Bind<bool>(sectionDisplayHealth, "4. In inventory", true, "Display your health when in the inventory.");
             displayHealthWhenHungry = Config.Bind<bool>(sectionDisplayHealth, "5. When hungry", false, "Display the health panel when you are hungry.");
             displayHealthWhenEating = Config.Bind<bool>(sectionDisplayHealth, "6. When eating", false, "Display the health panel when you eat food.");
@@ -283,6 +285,7 @@ namespace ImmersiveHud
             string sectionMisc = "9.0 - Misc";
             // Misc --------------------------------------------------------------------------------
             hudHiddenOnStart = Config.Bind<bool>(sectionMisc, "Hide HUD on start", false, "Hide the hud when the game is started.");
+            compatibilityIdHotkey = Config.Bind<KeyboardShortcut>(sectionMainSettings, "Prints missing UI elements to the console", new KeyboardShortcut(KeyCode.O), "");
         }
     }
 }

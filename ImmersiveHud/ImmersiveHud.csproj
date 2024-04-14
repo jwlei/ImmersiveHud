@@ -60,6 +60,7 @@
     <Compile Include="ImmersiveHud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Patches\Hud\HudElement.cs" />
+    <Compile Include="Utility\PatchCompatibilityIdentification.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">

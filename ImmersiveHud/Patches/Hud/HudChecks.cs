@@ -31,7 +31,7 @@ namespace ImmersiveHud
             }
         }
 
-        private static void CheckPressedHideKey(bool pressedHideKey)
+        private static void CheckPressedHideHud(bool pressedHideKey)
         {
             if (pressedHideKey)
             {
@@ -64,7 +64,7 @@ namespace ImmersiveHud
             }
         }
 
-        private static void CheckIfElementShouldShow()
+        private static void CheckPressedShowHud()
         {
             // Health
             if (showHealthOnKeyPressed.Value)
