@@ -184,7 +184,7 @@ namespace ImmersiveHud
             }
             else
             {
-                if (BetterUIEnabled.Value && hudElements["BetterUI_FoodBar"].exists)
+                if ((BetterUIEnabled.Value && hudElements["BetterUI_FoodBar"].exists) || (AzuMinimalUiEnabled.Value && hudElements["MUI_FoodBar"].exists))
                 {
                     // Display food bar when eating food
                     if (displayFoodBarWhenEating.Value && playerAteFood)

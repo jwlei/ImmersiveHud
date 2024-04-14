@@ -108,19 +108,29 @@ namespace ImmersiveHud
             // Reset timer when the target alpha changed.
             foreach (string name in hudElementNames)
             {
-                if (name == GetHealthbarElement() && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
-                {
-                    hudElements[name].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
-                }
-                else
-                {
-                    hudElements[name].HudElementCheckDisplayTimer(showHudDuration);
-                }
+                //if (name == GetHealthbarElement() && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
+                //{
+                //    hudElements[name].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
+                //}
+                //else
+                //{
+                //    hudElements[name].HudElementCheckDisplayTimer(showHudDuration);
+                //}
+                //if (!hudElements[name].exists || hudElements[name].element == null)
+                //    continue;
+
+                //if (hudElements[name].targetAlphaPrev != hudElements[name].targetAlpha)
+                //{
+                //    hudElements[name].timeFade = 0;
+                //}
+
                 if (!hudElements[name].exists || hudElements[name].element == null)
                     continue;
 
                 if (hudElements[name].targetAlphaPrev != hudElements[name].targetAlpha)
+                {
                     hudElements[name].timeFade = 0;
+                }
             }
 
             playerUsedHotBarItem = false;

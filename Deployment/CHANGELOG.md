@@ -1,5 +1,14 @@
+# 1.3.1
+* Hotfix for broken logic caused by experimental feature
+
+# 1.3.0
+* Added compatibility with Azumatt's Minimal UI, for foodbar see compatibility options
+
+* Major reorganization of config settings for increased readability
+
 # 1.2.0
 * Added option to show healthbar on damage taken
+
 * Added compatibility with AzuExtendedInventory
 
 # 1.1.0
