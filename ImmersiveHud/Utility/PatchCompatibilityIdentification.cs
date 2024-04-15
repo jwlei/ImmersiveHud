@@ -1,22 +1,20 @@
 ﻿using BepInEx;
 using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ImmersiveHud
 {
     public partial class ImmersiveHud : BaseUnityPlugin
     {
-        [HarmonyPatch(typeof(Hud), "Awake")]
+        [HarmonyPatch(typeof(Hud), "Update")]
         public static class PatchCompatibilityIdentification
         {
-            private static void Postfix(Transform __instance)
+            private static void Postfix(Hud __instance)
             {
-                DebugListOfHudElements(__instance, Input.GetKeyDown(compatibilityIdHotkey.Value.MainKey));
+                Transform hudRoot = __instance.transform.Find("hudroot");
+
+                DebugListOfMissingElements(hudRoot, Input.GetKeyDown(compatibilityIdHotkey.Value.MainKey));
+                DebugListOfHudElements(hudRoot, Input.GetKeyDown(listAllElementsHotkey.Value.MainKey));
             }
         }
     }

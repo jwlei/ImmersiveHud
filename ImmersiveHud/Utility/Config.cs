@@ -35,6 +35,7 @@ namespace ImmersiveHud
         public static ConfigEntry<bool> displayCrosshairOnEquipped;
         public static ConfigEntry<bool> displayCrosshairOnBowEquipped;
         public static ConfigEntry<bool> displayBowDrawCrosshair;
+        public static ConfigEntry<bool> disableCrosshairStamina;
 
         // Hud Element Settings
         public static ConfigEntry<bool> displayHealthAlways;
@@ -145,6 +146,7 @@ namespace ImmersiveHud
         public static ConfigEntry<bool> showKeyHintsOnKeyPressed;
 
         public static ConfigEntry<KeyboardShortcut> compatibilityIdHotkey;
+        public static ConfigEntry<KeyboardShortcut> listAllElementsHotkey;
 
         // -- HUDELEMENTS
 
@@ -237,6 +239,7 @@ namespace ImmersiveHud
             displayCrosshairOnEquipped = Config.Bind<bool>(sectionCrosshair, "6. Show on equipped item", false, "Display crosshair when an item is equipped in either hand.");
             displayCrosshairOnBowEquipped = Config.Bind<bool>(sectionCrosshair, "7. Show on equipped bow", false, "Display crosshair when the bow is equipped.");
             disableStealthHud = Config.Bind<bool>(sectionCrosshair, "8. Disable stealth hud", false, "Disable the stealth bar and indicator so it doesn't display.");
+            disableCrosshairStamina = Config.Bind<bool>(sectionCrosshair, "9. Hide the crosshair staminabar", false, "");
 
             string sectionCompatibility = "4.0 - Compatibility";
             // Compatibility --------------------------------------------------------------------------------
@@ -284,8 +287,9 @@ namespace ImmersiveHud
 
             string sectionMisc = "9.0 - Misc";
             // Misc --------------------------------------------------------------------------------
-            hudHiddenOnStart = Config.Bind<bool>(sectionMisc, "Hide HUD on start", false, "Hide the hud when the game is started.");
-            compatibilityIdHotkey = Config.Bind<KeyboardShortcut>(sectionMainSettings, "Prints missing UI elements to the console", new KeyboardShortcut(KeyCode.O), "");
+            hudHiddenOnStart = Config.Bind<bool>(sectionMisc, "9.1 Hide HUD on start", false, "Hide the hud when the game is started.");
+            compatibilityIdHotkey = Config.Bind<KeyboardShortcut>(sectionMisc, "9.2 Prints missing UI elements to the console", new KeyboardShortcut(), "");
+            listAllElementsHotkey = Config.Bind<KeyboardShortcut>(sectionMisc, "9.3 Prints all available UI elements to the console", new KeyboardShortcut(), "");
         }
     }
 }

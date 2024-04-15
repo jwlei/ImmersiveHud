@@ -177,7 +177,7 @@ namespace ImmersiveHud
             playerStealthIndicatorAlert = __instance.m_targetedAlert;
         }
 
-        private static void DebugListOfHudElements(Transform hud, bool keyPressed)
+        private static void DebugListOfMissingElements(Transform hud, bool keyPressed)
         {
             if (keyPressed)
             {
@@ -194,6 +194,19 @@ namespace ImmersiveHud
                         }
                     }
                 }
+            }
+        }
+
+        private static void DebugListOfHudElements(Transform hud, bool keyPressed)
+        {
+            if (keyPressed)
+            {
+                Debug.Log("-------------------------------------------");
+                foreach (Transform t in hud.GetComponentsInChildren<Transform>(false))
+                {
+                    Debug.Log("[" + t.name + "]");
+                }
+                Debug.Log("-------------------------------------------");
             }
         }
     }
