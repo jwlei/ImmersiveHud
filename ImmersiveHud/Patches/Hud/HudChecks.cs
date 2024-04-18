@@ -54,13 +54,11 @@ namespace ImmersiveHud
         {
             if (isMiniMapActive)
             {
-                hudElements["MiniMap"].targetAlpha = 0;
-                hudElements["MUIMap"].targetAlpha = 0;
+                hudElements[GetMinimapElement()].targetAlpha = 0;
             }
             else
             {
-                hudElements["MiniMap"].targetAlpha = 1;
-                hudElements["MUIMap"].targetAlpha = 1;
+                hudElements[GetMinimapElement()].targetAlpha = 1;
             }
         }
 
@@ -106,8 +104,7 @@ namespace ImmersiveHud
             // Mini Map
             if (showMiniMapOnKeyPressed.Value)
             {
-                hudElements["MUIMap"].ShowHudForDuration();
-                hudElements["MiniMap"].ShowHudForDuration();
+                hudElements[GetMinimapElement()].ShowHudForDuration();
             }
 
             // Compass

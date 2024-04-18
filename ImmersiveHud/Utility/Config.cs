@@ -145,8 +145,19 @@ namespace ImmersiveHud
 
         public static ConfigEntry<bool> showKeyHintsOnKeyPressed;
 
+		public static ConfigEntry<bool> muiMinimap;
+        public static ConfigEntry<bool> muiHealthbar;
+        public static ConfigEntry<bool> muiStaminabar;
+        public static ConfigEntry<bool> muiEitrbar;
+        public static ConfigEntry<bool> muiPowerbar;
+        public static ConfigEntry<bool> muiFoodbar;
+        public static ConfigEntry<bool> muiFoodbox;
+
         public static ConfigEntry<KeyboardShortcut> compatibilityIdHotkey;
         public static ConfigEntry<KeyboardShortcut> listAllElementsHotkey;
+
+        
+
 
         // -- HUDELEMENTS
 
@@ -189,8 +200,8 @@ namespace ImmersiveHud
             string sectionDisplayHealth = "3.0 - Healthbar";
             // Display Scenario Settings - Health --------------------------------------------------------------------------------
             displayHealthOnDamage = Config.Bind<bool>(sectionDisplayHealth, "1. On damage", true, "Display the health panel when you take damage.");
-            displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "2. Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
-            displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "3. Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
+            //displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "2. Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
+            //displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "3. Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
             displayHealthInInventory = Config.Bind<bool>(sectionDisplayHealth, "4. In inventory", true, "Display your health when in the inventory.");
             displayHealthWhenHungry = Config.Bind<bool>(sectionDisplayHealth, "5. When hungry", false, "Display the health panel when you are hungry.");
             displayHealthWhenEating = Config.Bind<bool>(sectionDisplayHealth, "6. When eating", false, "Display the health panel when you eat food.");
@@ -201,11 +212,11 @@ namespace ImmersiveHud
             string sectionDisplayStamina = "3.1 - Staminabar";
             // Display Scenario Settings - Stamina --------------------------------------------------------------------------------
             displayStaminaBarOnUse = Config.Bind<bool>(sectionDisplayStamina, "1. On use", true, "Display the stamina bar when stamina is used, overrides stamina percentage.");
-            staminaPercentage = Config.Bind<float>(sectionDisplayStamina, "1.1 Stamina percentage", 0.99f, new ConfigDescription("Stamina percentage at which the stamina bar should be displayed.", new AcceptableValueRange<float>(0f, 1f)));
             displayStaminaBarInInventory = Config.Bind<bool>(sectionDisplayStamina, "2. In inventory", true, "Display the stamina bar when in the inventory.");
             displayStaminaBarWhenHungry = Config.Bind<bool>(sectionDisplayStamina, "3. When hungry", false, "Display the stamina bar when you are hungry.");
             displayStaminaBarWhenEating = Config.Bind<bool>(sectionDisplayStamina, "4. When eating", true, "Display the stamina bar when you eat food.");
             displayStaminaBarWhenBelow = Config.Bind<bool>(sectionDisplayStamina, "5. When below stamina threshold", true, "When you are at or below a certain stamina percentage, display the stamina bar.");
+            staminaPercentage = Config.Bind<float>(sectionDisplayStamina, "5.1 Stamina threshold", 0.99f, new ConfigDescription("Stamina percentage at which the stamina bar should be displayed.", new AcceptableValueRange<float>(0f, 1f)));
             displayStaminaBarWhenFoodBelow = Config.Bind<bool>(sectionDisplayStamina, "6. When below food threshold", false, "When you are at or below a certain food percentage, display the stamina bar.");
 
             string sectionDisplayHotKeyBar = "3.2 - Hotkey bar";
@@ -284,6 +295,15 @@ namespace ImmersiveHud
             hungerNotificationOption = Config.Bind<hungerNotificationOptions>(sectionCompatibilityFoodbar, "hungerNotificationOption", hungerNotificationOptions.FoodPercentage, new ConfigDescription("Option to be used for notifications."));
             hungerNotificationText = Config.Bind<string>(sectionCompatibilityFoodbar, "hungerNotificationText", "I'm feeling a bit peckish.", "Message for hunger notification.");
             hungerNotificationType = Config.Bind<notificationTypes>(sectionCompatibilityFoodbar, "hungerNotificationType", notificationTypes.SmallTopLeft, new ConfigDescription("Notification types for the hunger notification."));
+
+            string sectionCompatibilityAzuMinimalUi = "4.5 - Compatibility: Minimal UI";
+            muiHealthbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "1. Enable MinimalUI Health bar", true, "");
+            muiStaminabar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "2. Enable MinimalUI Stamina bar", true, "");
+            muiEitrbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "3. Enable MinimalUI Eitr bar", true, "");
+            muiPowerbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "4. Enable MinimalUI Guardian Power bar", true, "");
+            muiFoodbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "5. Enable MinimalUI Food bar", true, "");
+            muiFoodbox = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "6. Enable MinimalUI Food boxes", true, "");
+            //muiMinimap = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "7. Enable MinimalUI Minimap", true, "");
 
             string sectionMisc = "9.0 - Misc";
             // Misc --------------------------------------------------------------------------------

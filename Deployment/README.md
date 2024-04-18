@@ -38,4 +38,5 @@ compatibility for those mods. For enabling compatibility options, look at the mo
 ﻿- Custom UI (Compatible)
 ﻿- Equipment and Quick Slots (Compatible)
 - AzuExtendedIntentory (Quick slots) (Compatible)
+- MinimalUI (Compatible)
 
