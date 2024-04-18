@@ -68,13 +68,14 @@ namespace ImmersiveHud
         private static string GetMinimapElement()
         {
             string minimap;
-            if (muiMinimap.Value && hudElements["MUIMap"].exists)
+            if (hudElements["MUIMap"].exists)
             {
+                // muiMinimap.Value &&
                 minimap = "MUIMap";
             }
-            else if (hudElements["Minimap"].exists)
+            else if (hudElements["MiniMap"].exists)
             {
-                minimap = "Minimap";
+                minimap = "MiniMap";
             }
             else
             {

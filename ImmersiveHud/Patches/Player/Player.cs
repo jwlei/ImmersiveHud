@@ -51,7 +51,7 @@ namespace ImmersiveHud
             }
         }
 
-        private static void SetPlayerTookDamage()
+        private static void ResetPlayerTookDamage()
         {
             playerTookDamage = false;
         }
@@ -76,11 +76,16 @@ namespace ImmersiveHud
             SetPlayerUsedStamina();
             SetPlayerAteFood();
             SetPlayerUsedHotBarItem();
+            ResetPlayerTookDamage();
 
-            if (playerTookDamage && hudElements[GetHealthbarElement()].timeDisplayed >= displayHealthOnDamageDuration.Value)
-            {
-                SetPlayerTookDamage();
-            }
+            //if (displayHealthOnDamageSeparateTimer.Value && playerTookDamage && hudElements[GetHealthbarElement()].timeDisplayed >= displayHealthOnDamageDuration.Value)
+            //{
+            //    ResetPlayerTookDamage();
+            //}
+            //if (!displayHealthOnDamageSeparateTimer.Value)
+            //{
+            //    ResetPlayerTookDamage();
+            //}
         }
     }
 }

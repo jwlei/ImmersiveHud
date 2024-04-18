@@ -42,9 +42,13 @@ namespace ImmersiveHud
             ItemDrop.ItemData playerEquippedWeapon = player.GetCurrentWeapon();
 
             if (playerEquippedWeapon != null)
+            {
                 playerHasItemEquipped = true;
+            }
             else
+            {
                 playerHasItemEquipped = false;
+            }
         }
 
         public static void GetPlayerTotalFoodValue(Player player)
@@ -108,7 +112,6 @@ namespace ImmersiveHud
             // Reset timer when the target alpha changed.
             foreach (string name in hudElementNames)
             {
-
                 //if (name == GetHealthbarElement() && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
                 //{
                 //    hudElements[name].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
@@ -127,7 +130,6 @@ namespace ImmersiveHud
                     hudElements[name].timeFade = 0;
                 }
             }
-
             SetPlayerStates();
         }
 
