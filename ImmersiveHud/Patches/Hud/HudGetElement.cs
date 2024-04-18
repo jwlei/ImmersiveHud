@@ -48,21 +48,39 @@ namespace ImmersiveHud
 
         private static string GetQuickslotElement()
         {
-            string elementName;
+            string quickslot;
             if (AzuQuickSlotsEnabled.Value && hudElements["QuickAccessBar"].exists)
             {
-                elementName = "QuickAccessBar";
+                quickslot = "QuickAccessBar";
             }
             else if (RandyQuickSlotsEnabled.Value && hudElements["QuickSlotsHotkeyBar"].exists)
             {
-                elementName = "QuickSlotsHotkeyBar";
+                quickslot = "QuickSlotsHotkeyBar";
             }
             else
             {
-                elementName = "";
+                quickslot = "";
             }
 
-            return elementName;
+            return quickslot;
+        }
+
+        private static string GetMinimapElement()
+        {
+            string minimap;
+            if (muiMinimap.Value && hudElements["MUIMap"].exists)
+            {
+                minimap = "MUIMap";
+            }
+            else if (hudElements["Minimap"].exists)
+            {
+                minimap = "Minimap";
+            }
+            else
+            {
+                minimap = "";
+            }
+            return minimap;
         }
     }
 }
