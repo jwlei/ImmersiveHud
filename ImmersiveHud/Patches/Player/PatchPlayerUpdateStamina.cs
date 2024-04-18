@@ -1,23 +1,27 @@
-﻿using HarmonyLib;
-using UnityEngine;
+﻿//using HarmonyLib;
+//using UnityEngine;
 
-namespace ImmersiveHud
-{
-    public partial class ImmersiveHud
-    {
-        [HarmonyPatch(typeof(Hud), "UpdateStamina")]
-        public static class PatchPlayerUpdateStamina
-        {
-            private static void Postfix(Hud __instance, float dt)
-            {
-                if (disableCrosshairStamina.Value)
-                {
-                    __instance.m_staminaBar2Root.gameObject.SetActive(false);
+//namespace ImmersiveHud
+//{
+//    public partial class ImmersiveHud
+//    {
+//        //[HarmonyPatch(typeof(Hud), "UpdateCrosshair")]
+//        //public static class PatchPlayerUpdateStamina
+//        //{
+//        //    private static void Postfix(Hud __instance, Player player)
+//        //    {
+//        //        Piece hoveringPiece = player.GetHoveringPiece();
+//        //        WearNTear component = hoveringPiece.GetComponent<WearNTear>();
 
-                    //hudElements["staminapanel"].element.gameObject.SetActive(true);
-                    //__instance.m_staminaAnimator.SetBool("Visible", true);
-                }
-            }
-        }
-    }
-}
+//        //        ZNetView m_nview = component.GetComponent<ZNetView>();
+
+//        //        float num = m_nview.GetZDO().GetFloat(ZDOVars.s_health, component.m_health);
+//        //        if (disableCrosshairStamina.Value && component.GetHealthPercentage() < num)
+//        //        {
+//        //            __instance.m_pieceHealthRoot.gameObject.SetActive(value: false);
+//        //            //__instance.m_pieceHealthBar.SetValue(component.GetHealthPercentage());
+//        //        }
+//        //    }
+//        //}
+//    }
+//}

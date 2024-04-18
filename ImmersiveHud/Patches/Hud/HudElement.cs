@@ -33,7 +33,7 @@ namespace ImmersiveHud
             "MUI_FoodBar",
             "food0",
             "food1",
-            "food2",
+            "food2"
             };
 
         public enum notificationTypes

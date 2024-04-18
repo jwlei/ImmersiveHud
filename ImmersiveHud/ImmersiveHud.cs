@@ -10,7 +10,7 @@ namespace ImmersiveHud
     {
         private const string MID = "jwlei.ImmersiveHud";
         private const string modName = "Immersive Hud";
-        private const string pluginVersion = "1.3.1";
+        private const string pluginVersion = "1.3.2";
 
         private void Awake()
         {
@@ -23,6 +23,7 @@ namespace ImmersiveHud
                 harmony.UnpatchSelf();
                 return;
             }
+
             harmony.PatchAll();
         }
 
@@ -32,7 +33,4 @@ namespace ImmersiveHud
             harmony.UnpatchSelf();
         }
     }
-
-    // TODO: Fix minimalui health bar color
-    // Fix foodbar hide option
 }
