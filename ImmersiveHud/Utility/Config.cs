@@ -145,7 +145,7 @@ namespace ImmersiveHud
 
         public static ConfigEntry<bool> showKeyHintsOnKeyPressed;
 
-		public static ConfigEntry<bool> muiMinimap;
+        public static ConfigEntry<bool> muiMinimap;
         public static ConfigEntry<bool> muiHealthbar;
         public static ConfigEntry<bool> muiStaminabar;
         public static ConfigEntry<bool> muiEitrbar;
@@ -155,9 +155,6 @@ namespace ImmersiveHud
 
         public static ConfigEntry<KeyboardShortcut> compatibilityIdHotkey;
         public static ConfigEntry<KeyboardShortcut> listAllElementsHotkey;
-
-        
-
 
         // -- HUDELEMENTS
 
@@ -200,8 +197,8 @@ namespace ImmersiveHud
             string sectionDisplayHealth = "3.0 - Healthbar";
             // Display Scenario Settings - Health --------------------------------------------------------------------------------
             displayHealthOnDamage = Config.Bind<bool>(sectionDisplayHealth, "1. On damage", true, "Display the health panel when you take damage.");
-            //displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "2. Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
-            //displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "3. Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
+            displayHealthOnDamageSeparateTimer = Config.Bind<bool>(sectionDisplayHealth, "2. Use separate timer for On damage", false, "Separate timer for health panel displaying when you take damage.");
+            displayHealthOnDamageDuration = Config.Bind<float>(sectionDisplayHealth, "3. Duration for time for On damage", 1f, "Timer for health panel displaying when you take damage");
             displayHealthInInventory = Config.Bind<bool>(sectionDisplayHealth, "4. In inventory", true, "Display your health when in the inventory.");
             displayHealthWhenHungry = Config.Bind<bool>(sectionDisplayHealth, "5. When hungry", false, "Display the health panel when you are hungry.");
             displayHealthWhenEating = Config.Bind<bool>(sectionDisplayHealth, "6. When eating", false, "Display the health panel when you eat food.");
@@ -297,19 +294,19 @@ namespace ImmersiveHud
             hungerNotificationType = Config.Bind<notificationTypes>(sectionCompatibilityFoodbar, "hungerNotificationType", notificationTypes.SmallTopLeft, new ConfigDescription("Notification types for the hunger notification."));
 
             string sectionCompatibilityAzuMinimalUi = "4.5 - Compatibility: Minimal UI";
-            muiHealthbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "1. Enable MinimalUI Health bar", true, "");
-            muiStaminabar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "2. Enable MinimalUI Stamina bar", true, "");
-            muiEitrbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "3. Enable MinimalUI Eitr bar", true, "");
-            muiPowerbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "4. Enable MinimalUI Guardian Power bar", true, "");
-            muiFoodbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "5. Enable MinimalUI Food bar", true, "");
-            muiFoodbox = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "6. Enable MinimalUI Food boxes", true, "");
+            muiHealthbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "1. Enable MinimalUI Health bar", true, "Has to be enabled/disabled in both mods");
+            muiStaminabar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "2. Enable MinimalUI Stamina bar", true, "Has to be enabled/disabled in both mods");
+            muiEitrbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "3. Enable MinimalUI Eitr bar", true, "Has to be enabled/disabled in both mods");
+            muiPowerbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "4. Enable MinimalUI Guardian Power bar", true, "Has to be enabled/disabled in both mods");
+            muiFoodbar = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "5. Enable MinimalUI Food bar", true, "Has to be enabled/disabled in both mods");
+            muiFoodbox = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "6. Enable MinimalUI Food boxes", true, "Has to be enabled/disabled in both mods");
             //muiMinimap = Config.Bind<bool>(sectionCompatibilityAzuMinimalUi, "7. Enable MinimalUI Minimap", true, "");
 
             string sectionMisc = "9.0 - Misc";
             // Misc --------------------------------------------------------------------------------
             hudHiddenOnStart = Config.Bind<bool>(sectionMisc, "9.1 Hide HUD on start", false, "Hide the hud when the game is started.");
-            compatibilityIdHotkey = Config.Bind<KeyboardShortcut>(sectionMisc, "9.2 Prints missing UI elements to the console", new KeyboardShortcut(), "");
-            listAllElementsHotkey = Config.Bind<KeyboardShortcut>(sectionMisc, "9.3 Prints all available UI elements to the console", new KeyboardShortcut(), "");
+            compatibilityIdHotkey = Config.Bind<KeyboardShortcut>(sectionMisc, "9.2 Prints missing UI elements to the console", new KeyboardShortcut(), "Debug purposes");
+            listAllElementsHotkey = Config.Bind<KeyboardShortcut>(sectionMisc, "9.3 Prints all available UI elements to the console", new KeyboardShortcut(), "Debug purposes");
         }
     }
 }
