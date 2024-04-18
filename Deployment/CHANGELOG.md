@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 # 1.3.2
 * Fix for partial compatibility with Minimal UI, added toggles to disable minimalUI elements, note that these should be disabled in both mods. E.g. If you want to use the vanilla healthbar, disable it in MinimalUI, and remove the checkmark for MinimalUI healthbar under Compatibility
+>>>>>>> main
 # 1.3.1
 * Hotfix for broken logic caused by experimental feature
 

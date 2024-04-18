@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using System.IO;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -127,6 +128,23 @@ namespace ImmersiveHud
 
             if (useCustomBowCrosshair.Value && crosshairBowSprite != null)
                 playerBowCrosshair.sprite = LoadCrosshairTexture(crosshairBowSprite);
+        }
+
+        private static void RemovePieceHealthBar()
+        {
+            Player pl = Player.m_localPlayer;
+            Piece hoveringPiece = pl.GetHoveringPiece();
+            Debug.Log(hoveringPiece);
+            WearNTear component = hoveringPiece.GetComponent<WearNTear>();
+            Debug.Log(component);
+            component.enabled = false;
+            //ZNetView m_nview = component.GetComponent<ZNetView>();
+
+            //float num = m_nview.GetZDO().GetFloat(ZDOVars.s_health, component.m_health);
+            //if (disableCrosshairStamina.Value && component.GetHealthPercentage() < num)
+            //{
+            //    __instance.m_pieceHealthRoot.gameObject.SetActive(value: false);
+            //__instance.m_pieceHealthBar.SetValue(component.GetHealthPercentage());
         }
     }
 }

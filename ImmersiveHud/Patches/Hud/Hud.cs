@@ -74,7 +74,7 @@ namespace ImmersiveHud
                     hudElements[name].targetAlphaPrev = hudElements[name].targetAlpha;
             }
 
-            CheckPressedHideKey(pressedHideKey);
+            CheckPressedHideHud(pressedHideKey);
             CheckHungerNotification();
 
             if (hudHidden)
@@ -88,7 +88,7 @@ namespace ImmersiveHud
             }
             else if (pressedShowKey)
             {
-                CheckIfElementShouldShow();
+                CheckPressedShowHud();
             }
             else
             {
@@ -108,6 +108,7 @@ namespace ImmersiveHud
             // Reset timer when the target alpha changed.
             foreach (string name in hudElementNames)
             {
+
                 //if (name == GetHealthbarElement() && displayHealthOnDamageSeparateTimer.Value && playerTookDamage)
                 //{
                 //    hudElements[name].HudElementCheckDisplayTimer(displayHealthOnDamageDuration);
@@ -122,13 +123,12 @@ namespace ImmersiveHud
                     continue;
 
                 if (hudElements[name].targetAlphaPrev != hudElements[name].targetAlpha)
+                {
                     hudElements[name].timeFade = 0;
+                }
             }
 
-            playerUsedHotBarItem = false;
-            playerUsedStamina = false;
-            playerTookDamage = false;
-            playerAteFood = false;
+            SetPlayerStates();
         }
 
         private static void ForceVanillaStaminabar(Hud __instance)
@@ -177,6 +177,39 @@ namespace ImmersiveHud
             playerStealthIndicator = __instance.m_hidden;
             playerStealthIndicatorTargeted = __instance.m_targeted;
             playerStealthIndicatorAlert = __instance.m_targetedAlert;
+        }
+
+        private static void DebugListOfMissingElements(Transform hud, bool keyPressed)
+        {
+            if (keyPressed)
+            {
+                foreach (Transform t in hud.GetComponentsInChildren<Transform>(true))
+                {
+                    //Debug.Log("UI element: [" + t.name + "]");
+                    // Check if the name exists in the list of hud element names
+                    if (hudElements.ContainsKey(t.name))
+                    {
+                        // Check if the element exists
+                        if (!hudElements[t.name].exists)
+                        {
+                            Debug.Log("WARN: Can't find UI element: [" + t.name + "] does not exist");
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void DebugListOfHudElements(Transform hud, bool keyPressed)
+        {
+            if (keyPressed)
+            {
+                Debug.Log("-------------------------------------------");
+                foreach (Transform t in hud.GetComponentsInChildren<Transform>(false))
+                {
+                    Debug.Log("[" + t.name + "]");
+                }
+                Debug.Log("-------------------------------------------");
+            }
         }
     }
 }

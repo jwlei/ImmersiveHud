@@ -16,6 +16,8 @@ namespace ImmersiveHud
 
                 UpdateCrosshairHudElement(bowDrawPercentage);
                 UpdateStealthHudElement();
+
+                //RemovePieceHealthBar();
             }
         }
     }

@@ -31,7 +31,7 @@ namespace ImmersiveHud
             }
         }
 
-        private static void CheckPressedHideKey(bool pressedHideKey)
+        private static void CheckPressedHideHud(bool pressedHideKey)
         {
             if (pressedHideKey)
             {
@@ -62,7 +62,7 @@ namespace ImmersiveHud
             }
         }
 
-        private static void CheckIfElementShouldShow()
+        private static void CheckPressedShowHud()
         {
             // Health
             if (showHealthOnKeyPressed.Value)
@@ -181,7 +181,7 @@ namespace ImmersiveHud
             }
             else
             {
-                if (BetterUIEnabled.Value && hudElements["BetterUI_FoodBar"].exists)
+                if ((BetterUIEnabled.Value && hudElements["BetterUI_FoodBar"].exists) || (AzuMinimalUiEnabled.Value && hudElements["MUI_FoodBar"].exists))
                 {
                     // Display food bar when eating food
                     if (displayFoodBarWhenEating.Value && playerAteFood)

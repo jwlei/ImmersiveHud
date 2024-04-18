@@ -50,5 +50,37 @@ namespace ImmersiveHud
                 characterEquippedBow = false;
             }
         }
+
+        private static void SetPlayerTookDamage()
+        {
+            playerTookDamage = false;
+        }
+
+        private static void SetPlayerUsedStamina()
+        {
+            playerUsedStamina = false;
+        }
+
+        private static void SetPlayerAteFood()
+        {
+            playerAteFood = false;
+        }
+
+        private static void SetPlayerUsedHotBarItem()
+        {
+            playerUsedHotBarItem = false;
+        }
+
+        private static void SetPlayerStates()
+        {
+            SetPlayerUsedStamina();
+            SetPlayerAteFood();
+            SetPlayerUsedHotBarItem();
+
+            if (playerTookDamage && hudElements[GetHealthbarElement()].timeDisplayed >= displayHealthOnDamageDuration.Value)
+            {
+                SetPlayerTookDamage();
+            }
+        }
     }
 }

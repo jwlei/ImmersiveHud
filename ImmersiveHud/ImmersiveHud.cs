@@ -23,6 +23,7 @@ namespace ImmersiveHud
                 harmony.UnpatchSelf();
                 return;
             }
+
             harmony.PatchAll();
         }
 
@@ -32,7 +33,4 @@ namespace ImmersiveHud
             harmony.UnpatchSelf();
         }
     }
-
-    // TODO: Fix minimalui health bar color
-    // Fix foodbar hide option
 }

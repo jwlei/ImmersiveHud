@@ -43,7 +43,7 @@ namespace ImmersiveHud
                     }
                     else
                     {
-                        hudElements[name].timeDisplay += Time.deltaTime;
+                        hudElements[name].timeDisplayed += Time.deltaTime;
                     }
                 }
             }
