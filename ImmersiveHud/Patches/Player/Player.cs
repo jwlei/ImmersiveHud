@@ -76,15 +76,16 @@ namespace ImmersiveHud
             SetPlayerUsedStamina();
             SetPlayerAteFood();
             SetPlayerUsedHotBarItem();
+            ResetPlayerTookDamage();
 
-            if (displayHealthOnDamageSeparateTimer.Value && playerTookDamage && hudElements[GetHealthbarElement()].timeDisplayed >= displayHealthOnDamageDuration.Value)
-            {
-                ResetPlayerTookDamage();
-            }
-            if (!displayHealthOnDamageSeparateTimer.Value)
-            {
-                ResetPlayerTookDamage();
-            }
+            //if (displayHealthOnDamageSeparateTimer.Value && playerTookDamage && hudElements[GetHealthbarElement()].timeDisplayed >= displayHealthOnDamageDuration.Value)
+            //{
+            //    ResetPlayerTookDamage();
+            //}
+            //if (!displayHealthOnDamageSeparateTimer.Value)
+            //{
+            //    ResetPlayerTookDamage();
+            //}
         }
     }
 }
