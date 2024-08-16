@@ -35,6 +35,8 @@ namespace ImmersiveHud
             {
                 hudElements["MiniMap"].timeFade = 0;
                 hudElements["MUIMap"].timeFade = 0;
+                hudElements["MLUI_Forecast"].timeFade = 0;
+                hudElements["MLUI_Winds"].timeFade = 0;
             }
 
             GetPlayerTotalFoodValue(player);

@@ -55,10 +55,20 @@ namespace ImmersiveHud
             if (isMiniMapActive)
             {
                 hudElements[GetMinimapElement()].targetAlpha = 0;
+                if (MyLittleUIEnabled.Value)
+                {
+                    hudElements["MLUI_Forecast"].targetAlpha = 0;
+                    hudElements["MLUI_Winds"].targetAlpha = 0;
+                }
             }
             else
             {
                 hudElements[GetMinimapElement()].targetAlpha = 1;
+                if (MyLittleUIEnabled.Value)
+                {
+                    hudElements["MLUI_Forecast"].targetAlpha = 1;
+                    hudElements["MLUI_Winds"].targetAlpha = 1;
+                }
             }
         }
 
@@ -105,6 +115,11 @@ namespace ImmersiveHud
             if (showMiniMapOnKeyPressed.Value)
             {
                 hudElements[GetMinimapElement()].ShowHudForDuration();
+                if (MyLittleUIEnabled.Value)
+                {
+                    hudElements["MLUI_Forecast"].ShowHudForDuration();
+                    hudElements["MLUI_Winds"].ShowHudForDuration();
+                }
             }
 
             // Compass
@@ -112,8 +127,14 @@ namespace ImmersiveHud
                 hudElements["Compass"].ShowHudForDuration();
 
             // Day and Time
-            if (showTimeOnKeyPressed.Value && oryxenTimeEnabled.Value)
-                hudElements["DayTimePanel"].ShowHudForDuration();
+            if (showTimeOnKeyPressed.Value)
+            {
+                if (oryxenTimeEnabled.Value)
+                    hudElements["DayTimePanel"].ShowHudForDuration();
+
+                if (MyLittleUIEnabled.Value)
+                    hudElements["MLUI_Clock"].ShowHudForDuration();
+            }
 
             // Quick Slots
             if (showQuickSlotsOnKeyPressed.Value)
@@ -329,15 +350,23 @@ namespace ImmersiveHud
             {
                 hudElements["MiniMap"].targetAlpha = 1;
                 hudElements["MUIMap"].targetAlpha = 1;
+                hudElements["MLUI_Forecast"].targetAlpha = 1;
+                hudElements["MLUI_Winds"].targetAlpha = 1;
 
                 if (!displayMiniMapInInventory.Value && InventoryGui.IsVisible())
+                {
                     hudElements["MiniMap"].HudSetTargetAlpha(0);
-                hudElements["MUIMap"].HudSetTargetAlpha(0);
+                    hudElements["MUIMap"].HudSetTargetAlpha(0);
+                    hudElements["MLUI_Forecast"].HudSetTargetAlpha(0);
+                    hudElements["MLUI_Winds"].HudSetTargetAlpha(0);
+                }
             }
             else
             {
                 hudElements["MiniMap"].HudSetTargetAlpha(0);
                 hudElements["MUIMap"].HudSetTargetAlpha(0);
+                hudElements["MLUI_Forecast"].HudSetTargetAlpha(0);
+                hudElements["MLUI_Winds"].HudSetTargetAlpha(0);
             }
         }
 

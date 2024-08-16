@@ -25,6 +25,9 @@ namespace ImmersiveHud
             hudElements["food0"].exists = false;
             hudElements["food1"].exists = false;
             hudElements["food2"].exists = false;
+            hudElements["MLUI_Forecast"].exists = false;
+            hudElements["MLUI_Winds"].exists = false;
+            hudElements["MLUI_Clock"].exists = false;
         }
 
         public static void setCompatibility(Transform hud)
@@ -133,6 +136,27 @@ namespace ImmersiveHud
                 {
                     hudElements["food2"].setElement(hud.Find("food2"));
                     hudElements["food2"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
+                }
+            }
+            
+            if (MyLittleUIEnabled.Value)
+            {
+                if (!hudElements["MLUI_Forecast"].exists && hud.Find("MyLittleUI_Parent/Forecast"))
+                {
+                    hudElements["MLUI_Forecast"].setElement(hud.Find("MyLittleUI_Parent/Forecast"));
+                    hudElements["MLUI_Forecast"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
+                }
+
+                if (!hudElements["MLUI_Winds"].exists && hud.Find("MyLittleUI_Parent/Winds"))
+                {
+                    hudElements["MLUI_Winds"].setElement(hud.Find("MyLittleUI_Parent/Winds"));
+                    hudElements["MLUI_Winds"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
+                }
+
+                if (!hudElements["MLUI_Clock"].exists && hud.Find("MyLittleUI_Parent/Clock"))
+                {
+                    hudElements["MLUI_Clock"].setElement(hud.Find("MyLittleUI_Parent/Clock"));
+                    hudElements["MLUI_Clock"].element.GetComponent<RectTransform>().gameObject.AddComponent<CanvasGroup>();
                 }
             }
         }
