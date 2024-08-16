@@ -43,6 +43,22 @@ namespace ImmersiveHud
                     hudElements["DayTimePanel"].HudSetTargetAlpha(0);
                 }
             }
+
+            if (MyLittleUIEnabled.Value && hudElements["MLUI_Clock"].exists)
+            {
+                if (displayTimeAlways.Value || (displayTimeInInventory.Value && InventoryGui.IsVisible()))
+                {
+                    hudElements["MLUI_Clock"].targetAlpha = 1;
+
+                    if (!displayTimeInInventory.Value && InventoryGui.IsVisible())
+                        hudElements["MLUI_Clock"].HudSetTargetAlpha(0);
+                }
+                else
+                {
+                    hudElements["MLUI_Clock"].HudSetTargetAlpha(0);
+                }
+            }
+            
         }
 
         private static void CheckRandyQuickSlots()

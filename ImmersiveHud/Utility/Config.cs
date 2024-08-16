@@ -59,6 +59,7 @@ namespace ImmersiveHud
         public static ConfigEntry<bool> oryxenTimeEnabled;
         public static ConfigEntry<bool> AzuQuickSlotsEnabled;
         public static ConfigEntry<bool> AzuMinimalUiEnabled;
+        public static ConfigEntry<bool> MyLittleUIEnabled;
 
         // Hud Element - Health
         public static ConfigEntry<bool> displayHealthInInventory;
@@ -257,6 +258,7 @@ namespace ImmersiveHud
             aedenCompassEnabled = Config.Bind<bool>(sectionCompatibility, "4. Compass", false, "Enable compatibility for aedenthorn's compass mod.");
             BetterUIEnabled = Config.Bind<bool>(sectionCompatibility, "5. BetterUI", false, "Enable compatibility for Better UI.");
             oryxenTimeEnabled = Config.Bind<bool>(sectionCompatibility, "6. Display Day and Time in HUD", false, "Enable compatibility for oryxen's display day and time mod.");
+            MyLittleUIEnabled = Config.Bind<bool>(sectionCompatibility, "7. MyLittleUI", false, "Enable compatibility for MyLittleUI mod.");
 
             string sectionCompatibilityQuickslots = "4.1 - Compatibility: Quickslots";
             // Display Scenario Settings - Quick Slots --------------------------------------------------------------------------------
