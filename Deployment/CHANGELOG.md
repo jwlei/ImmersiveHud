@@ -1,3 +1,6 @@
+# 1.3.4
+* Updated references
+
 # 1.3.3
 * Hotfix again lol, I'l test better in the future.
 
